@@ -1,0 +1,151 @@
+{
+  "version-1.0/tutorialSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Introduction",
+      "items":[
+        {
+          "type": "doc",
+          "id": "version-1.0/intro"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Getting-Started-with-Rahat"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Rahat-Team"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Brand-Guidelines"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Open Source",
+      "items":[
+        {
+          "type": "doc",
+          "id": "version-1.0/Licenses",
+          "label": "Licenses - L-GPL 3.0"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/OS-strategy",
+          "label": "Our O.S Charter - Rahat Open Source Strategy "
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Contribution-Guidelines",
+          "label": "Contribution Guidelines"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Code-of-Conduct"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "User and Developer Documentation",
+      "items":[
+        {
+          "type": "doc",
+          "id": "version-1.0/Getting-Started-Developer",
+          "label":"Getting started (Developer)"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Rahat-Software-Requirements-Specifications"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Api Documentation",
+          "label":"API Documentation"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Integrating-Rahat-with-External-Services"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Rahat-Beneficiary-Registration-Tool"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Rahat-Crowd-Fundraise-Module"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Release-Notes",
+          "label":"Release Notes"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/User-Manual",
+          "label":"User Manual/ Tutorials ( GUIDES)"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Learn",
+      "items":[
+        {
+          "type": "doc",
+          "id": "version-1.0/Resources",
+          "label":"Resources(eSatya resource- Third partyCALP/Humanitarian)"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Pilot-Reports"
+        },
+        {
+          "type": "link",
+          "label":"Whitepaper",
+          "href":"https://docs.google.com/document/d/1Rxr-Ws194jyfZ2-f2Ne4EYoIoefVccTdpf40C4LFqPQ/edit?rm=minimal"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Community-Feedback-Reports",
+          "label":"Community Feedback Reports"
+        },
+        {
+          "type": "link",
+          "label":"Blogs",
+          "href":"https://rahat.io/#LatestBlogs"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Collaborate",
+      "items":[
+        {
+          "type": "link",
+          "label":"GitHub",
+          "href":"https://github.com/esatya/rahat"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/Bounty-Information",
+          "label":"Bounty Information"
+        }
+      ]
+    }
+  ],
+  "version-1.0/apiSidebar": [
+    {
+      "type": "doc",
+      "id": "version-1.0/API"
+    }
+  ]
+}
+

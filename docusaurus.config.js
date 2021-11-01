@@ -1,0 +1,148 @@
+// @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
+
+const lightCodeTheme = require("prism-react-renderer/themes/github");
+const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const ArchivedVersions = require("./archivedVersions.json");
+
+/** @type {import('@docusaurus/types').Config} */
+const config = {
+  title: "Rahat - Aid Token Distribution",
+  tagline:
+    "Supporting vulnerable communities with a simple and efficient relief distribution platform.",
+  url: "https://demo.documentation.rahat.io",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
+  organizationName: "Rahat", // Usually your GitHub org/user name.
+  projectName: "Rahat Documentation", // Usually your repo name.
+  presets: [
+    [
+      "@docusaurus/preset-classic",
+      /** @type {import('@docusaurus/preset-classic').Options} */
+      ({
+        docs: {
+          sidebarPath: require.resolve("./sidebars.js"),
+          // Please change this to your repo.
+          editUrl: "https://github.com/esatya?tab=repositories",
+        },
+        blog: {
+          path: "blog",
+          blogSidebarCount: "ALL",
+        },
+        theme: {
+          customCss: require.resolve("./src/css/custom.css"),
+        },
+      }),
+    ],
+  ],
+
+  themeConfig:
+    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    ({
+      navbar: {
+        logo: {
+          alt: "Rahat Logo",
+          src: "https://rahat.esatya.io/images/logo.png",
+        },
+        items: [
+          {
+            type: "doc",
+            docId: "intro",
+            position: "right",
+            label: "Docs",
+          },
+          {
+            type: "doc",
+            docId: "API",
+            position: "right",
+            label: "API",
+          },
+          { to: "blog", label: "Releases", position: "right" },
+          {
+            to: "/help",
+            position: "right",
+            label: "Help",
+          },
+
+          {
+            type: "docsVersionDropdown",
+            position: "left",
+            dropdownActiveClassDisabled: true,
+            dropdownItemsAfter: [
+              ...Object.entries(ArchivedVersions).map(
+                ([versionName, versionUrl]) => ({
+                  to: versionUrl,
+                  label: versionName,
+                })
+              ),
+              {
+                to: "/versions",
+                label: "All versions",
+              },
+            ],
+          },
+          { type: "localeDropdown", position: "right" },
+          {
+            href: "https://github.com/esatya?tab=repositories",
+            position: "right",
+            className: "header-github-link",
+            "aria-label": "GitHub repository",
+          },
+        ],
+      },
+      footer: {
+        style: "dark",
+        links: [
+          {
+            title: "Docs",
+            items: [
+              {
+                label: "Tutorial",
+                to: "/docs/intro",
+              },
+            ],
+          },
+          {
+            title: "Community",
+            items: [
+              {
+                label: "Discord",
+                href: "https://discord.com/invite/PvSuZyDb",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/rahataid",
+              },
+            ],
+          },
+          {
+            title: "More",
+            items: [
+              {
+                label: "Blog",
+                to: "https://rahat.esatya.io/blogs/",
+              },
+              {
+                label: "GitHub",
+                href: "https://github.com/esatya?tab=repositories",
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Rahat. A part of Rumsan Group of Companies. Designed by Rumsan.`,
+      },
+      prism: {
+        theme: lightCodeTheme,
+        darkTheme: darkCodeTheme,
+      },
+      // algolia: {
+      //   indexName: "jest-v2",
+      //   apiKey: "833906d7486e4059359fa58823c4ef56",
+      //   contextualSearch: true,
+      // },
+    }),
+};
+
+module.exports = config;
