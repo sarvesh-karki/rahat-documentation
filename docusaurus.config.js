@@ -7,6 +7,10 @@ const ArchivedVersions = require("./archivedVersions.json");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en"],
+  },
   title: "Rahat - Aid Token Distribution",
   tagline:
     "Supporting vulnerable communities with a simple and efficient relief distribution platform.",

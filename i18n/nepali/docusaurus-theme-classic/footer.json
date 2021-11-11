@@ -1,0 +1,38 @@
+{
+  "link.title.Docs": {
+    "message": "कागजात",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "समुदाय",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "थप",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Tutorial": {
+    "message": "ट्यूटोरियल",
+    "description": "The label of footer link with label=Tutorial linking to /docs/intro"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.com/invite/PvSuZyDb"
+  },
+  "link.item.label.Twitter": {
+    "message": "ट्विटर",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/rahataid"
+  },
+  "link.item.label.Blog": {
+    "message": "ब्लग",
+    "description": "The label of footer link with label=Blog linking to https://rahat.esatya.io/blogs/"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/esatya?tab=repositories"
+  },
+  "copyright": {
+    "message": "प्रतिलिपि अधिकार © २०२१ राहत। रुम्सान ग्रुप अफ कम्पनिज को एक हिस्सा। रुम्सान द्वारा डिजाइन।",
+    "description": "The footer copyright"
+  }
+}

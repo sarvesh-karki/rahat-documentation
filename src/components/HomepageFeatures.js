@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./HomepageFeatures.module.css";
+import Translate from "@docusaurus/Translate";
 
 const fetchContributors = async () => {
   const contributors = await axios(
@@ -39,7 +40,9 @@ export default function HomepageFeatures() {
     <section className={styles.features}>
       <div className="container">
         <div className="hero__title">
-          <h2>Our Contributors</h2>
+          <h2>
+            <Translate>Our Contributors</Translate>
+          </h2>
         </div>
         <div className="row">
           {contributorsList.map((props, idx) => (
