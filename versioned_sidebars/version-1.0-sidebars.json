@@ -45,7 +45,8 @@
         },
         {
           "type": "doc",
-          "id": "version-1.0/Code-of-Conduct"
+          "id": "version-1.0/Code-of-Conduct",
+          "label": "Code of Conduct"
         }
       ]
     },
@@ -57,7 +58,7 @@
         {
           "type": "doc",
           "id": "version-1.0/Getting-Started-Developer",
-          "label":"Getting started (Developer)"
+          "label":"Getting started"
         },
         {
           "type": "doc",
@@ -80,15 +81,11 @@
           "type": "doc",
           "id": "version-1.0/Rahat-Crowd-Fundraise-Module"
         },
-        {
-          "type": "doc",
-          "id": "version-1.0/Release-Notes",
-          "label":"Release Notes"
-        },
+      
         {
           "type": "doc",
           "id": "version-1.0/User-Manual",
-          "label":"User Manual/ Tutorials ( GUIDES)"
+          "label":"User Manual/ Tutorials"
         }
       ]
     },
@@ -100,7 +97,7 @@
         {
           "type": "doc",
           "id": "version-1.0/Resources",
-          "label":"Resources(eSatya resource- Third partyCALP/Humanitarian)"
+          "label":"Resources"
         },
         {
           "type": "doc",
