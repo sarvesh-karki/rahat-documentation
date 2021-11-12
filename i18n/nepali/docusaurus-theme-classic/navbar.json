@@ -1,0 +1,18 @@
+{
+  "item.label.Docs": {
+    "message": "कागजात",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.API": {
+    "message": "एपीआई",
+    "description": "Navbar item with label API"
+  },
+  "item.label.Releases": {
+    "message": "रिलीज",
+    "description": "Navbar item with label Releases"
+  },
+  "item.label.Help": {
+    "message": "सहयोग",
+    "description": "Navbar item with label Help"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Introduction": {
+    "message": "परिचय",
+    "description": "The label for category Introduction in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Open Source": {
+    "message": "खुला स्रोत",
+    "description": "The label for category Open Source in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.User and Developer Documentation": {
+    "message": "प्रयोगकर्ता र विकासकर्ता कागजात",
+    "description": "The label for category User and Developer Documentation in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Learn": {
+    "message": "सिक्नुहोस्",
+    "description": "The label for category Learn in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Collaborate": {
+    "message": "सहयोग गर्नुहोस्",
+    "description": "The label for category Collaborate in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.link.Whitepaper": {
+    "message": "Whitepaper",
+    "description": "The label for link Whitepaper in sidebar tutorialSidebar, linking to https://docs.google.com/document/d/1Rxr-Ws194jyfZ2-f2Ne4EYoIoefVccTdpf40C4LFqPQ/edit?rm=minimal"
+  },
+  "sidebar.tutorialSidebar.link.Blogs": {
+    "message": "ब्लगहरू",
+    "description": "The label for link Blogs in sidebar tutorialSidebar, linking to https://rahat.io/#LatestBlogs"
+  },
+  "sidebar.tutorialSidebar.link.GitHub": {
+    "message": "GitHub",
+    "description": "The label for link GitHub in sidebar tutorialSidebar, linking to https://github.com/esatya/rahat"
+  }
+}
