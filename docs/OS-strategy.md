@@ -1,5 +1,5 @@
 ---
-id: OS-strategy
+id: OS strategy
 ---
 
 ## Coming Soon !!!

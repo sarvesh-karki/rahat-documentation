@@ -1,4 +1,4 @@
 ---
-id: Bounty-Information
+id: Bounty Information
 ---
 ## Coming Soon !!!

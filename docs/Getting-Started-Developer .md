@@ -1,5 +1,5 @@
 ﻿---
-id: Getting-Started-Developer
+id: Getting Started Developer
 ---
 
 **Getting started with Rahat Systems**
