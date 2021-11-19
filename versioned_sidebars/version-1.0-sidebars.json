@@ -11,7 +11,8 @@
         },
         {
           "type": "doc",
-          "id": "version-1.0/Getting-Started-with-Rahat"
+          "id": "version-1.0/Getting-Started-with-Rahat",
+          "label": "Getting Started with Rahat"
         },
         {
           "type": "doc",
@@ -36,7 +37,7 @@
         {
           "type": "doc",
           "id": "version-1.0/OS-strategy",
-          "label": "Our O.S Charter - Rahat Open Source Strategy "
+          "label": "Our O.S Charter"
         },
         {
           "type": "doc",
@@ -62,7 +63,8 @@
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Software-Requirements-Specifications"
+          "id": "version-1.0/Rahat-Software-Requirements-Specifications",
+          "label": "Software Requirement Specification"
         },
         {
           "type": "doc",
@@ -71,21 +73,24 @@
         },
         {
           "type": "doc",
-          "id": "version-1.0/Integrating-Rahat-with-External-Services"
+          "id": "version-1.0/Integrating-Rahat-with-External-Services",
+          "label": "Integrating Rahat with External Services"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Beneficiary-Registration-Tool"
+          "id": "version-1.0/Rahat-Beneficiary-Registration-Tool",
+          "label": " Beneficiry Registration Tool"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Crowd-Fundraise-Module"
+          "id": "version-1.0/Rahat-Crowd-Fundraise-Module",
+          "label": "Crowd Fundraise Module"
         },
       
         {
           "type": "doc",
           "id": "version-1.0/User-Manual",
-          "label":"User Manual/ Tutorials"
+          "label":"User Manual"
         }
       ]
     },
@@ -112,11 +117,6 @@
           "type": "doc",
           "id": "version-1.0/Community-Feedback-Reports",
           "label":"Community Feedback Reports"
-        },
-        {
-          "type": "link",
-          "label":"Blogs",
-          "href":"https://rahat.io/#LatestBlogs"
         }
       ]
     },
