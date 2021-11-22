@@ -1,1841 +1,1147 @@
 {
-  "openapi": "2.0",
-  "host": "agency.rahat.io",
-  "basePath": "/",
-  "schemes": ["https"],
+  "openapi": "3.0.2",
   "info": {
-    "title": "Rahat Server",
-    "version": "2.1.0",
-    "description": "Server application for Rahat Systems"
+    "title": "Swagger Petstore - OpenAPI 3.0",
+    "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.7"
   },
-  "securityDefinitions": {
-    "jwt": {
-      "type": "apiKey",
-      "name": "access_token",
-      "in": "header"
-    }
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
   },
-  "security": [
+  "servers": [
     {
-      "jwt": []
+      "url": "/api/v3"
     }
   ],
-  "tags": [],
+  "tags": [
+    {
+      "name": "pet",
+      "description": "Everything about your Pets",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    },
+    {
+      "name": "store",
+      "description": "Operations about user"
+    },
+    {
+      "name": "user",
+      "description": "Access to Petstore orders",
+      "externalDocs": {
+        "description": "Find out more about our store",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
   "paths": {
-    "/api/v1/auth": {
-      "get": {
-        "summary": "Get the token data",
-        "operationId": "getApiV1Auth",
-        "tags": ["auth"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
+    "/pet": {
+      "put": {
+        "tags": ["pet"],
+        "summary": "Update an existing pet",
+        "description": "Update an existing pet by Id",
+        "operationId": "updatePet",
+        "requestBody": {
+          "description": "Update an existent pet in the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pet"
+              }
             },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Login using username and password",
-        "operationId": "postApiV1Auth",
-        "tags": ["auth"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Pet"
+              }
             },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/beneficiaries": {
-      "get": {
-        "summary": "List all beneficiarys.",
-        "operationId": "getApiV1Beneficiaries",
-        "tags": ["beneficiaries"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Add a beneficiary.",
-        "operationId": "postApiV1Beneficiaries",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "type": "string"
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Pet"
+              }
             }
-          }
-        ],
-        "tags": ["beneficiaries"],
+          },
+          "required": true
+        },
         "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          },
+          "405": {
+            "description": "Validation exception"
           }
-        }
-      }
-    },
-    "/api/v1/institutions": {
-      "get": {
-        "summary": "List all the financial institutions",
-        "operationId": "getApiV1Institutions",
-        "tags": ["institutions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
           }
-        }
+        ]
       },
       "post": {
-        "summary": "Add a financial institutions",
-        "operationId": "postApiV1Institutions",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Institution"
-            }
-          }
-        ],
-        "tags": ["institutions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
+        "tags": ["pet"],
+        "summary": "Add a new pet to the store",
+        "description": "Add a new pet to the store",
+        "operationId": "addPet",
+        "requestBody": {
+          "description": "Create a new pet in the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pet"
+              }
             },
-            "description": "Successful"
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Pet"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Pet"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
           }
-        }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
       }
     },
-    "/api/v1/mobilizers": {
+    "/pet/findByStatus": {
       "get": {
-        "summary": "List all Mobilizers.",
-        "operationId": "getApiV1Mobilizers",
+        "tags": ["pet"],
+        "summary": "Finds Pets by status",
+        "description": "Multiple status values can be provided with comma separated strings",
+        "operationId": "findPetsByStatus",
         "parameters": [
           {
-            "type": "number",
-            "name": "start",
-            "in": "query"
-          },
-          {
-            "type": "number",
-            "name": "limit",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "name": "name",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "name": "projectId",
-            "in": "query"
-          },
-          {
-            "type": "string",
             "name": "status",
-            "in": "query"
-          },
-          {
-            "type": "boolean",
-            "name": "show_archive",
-            "in": "query"
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": false,
+            "explode": true,
             "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Add a MOBILIZER.",
-        "operationId": "postApiV1Mobilizers",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Mobilizer"
+              "type": "string",
+              "default": "available",
+              "enum": ["available", "pending", "sold"]
             }
           }
         ],
-        "tags": ["mobilizers"],
         "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
           }
-        }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
       }
     },
-    "/api/v1/projects": {
+    "/pet/findByTags": {
       "get": {
-        "summary": "List all the agencies projects",
-        "operationId": "getApiV1Projects",
+        "tags": ["pet"],
+        "summary": "Finds Pets by tags",
+        "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
+        "operationId": "findPetsByTags",
         "parameters": [
           {
-            "type": "number",
-            "name": "start",
-            "in": "query"
+            "name": "tags",
+            "in": "query",
+            "description": "Tags to filter by",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tag value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
+      }
+    },
+    "/pet/{petId}": {
+      "get": {
+        "tags": ["pet"],
+        "summary": "Find pet by ID",
+        "description": "Returns a single pet",
+        "operationId": "getPetById",
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
           },
           {
-            "type": "number",
-            "name": "limit",
-            "in": "query"
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
+      },
+      "post": {
+        "tags": ["pet"],
+        "summary": "Updates a pet in the store with form data",
+        "description": "",
+        "operationId": "updatePetWithForm",
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "ID of pet that needs to be updated",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
           },
           {
-            "type": "string",
             "name": "name",
-            "in": "query"
+            "in": "query",
+            "description": "Name of pet that needs to be updated",
+            "schema": {
+              "type": "string"
+            }
           },
           {
-            "type": "string",
             "name": "status",
-            "in": "query"
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
+            "in": "query",
+            "description": "Status of pet that needs to be updated",
             "schema": {
               "type": "string"
-            },
-            "description": "Successful"
+            }
           }
-        }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
       },
-      "post": {
-        "summary": "Add new project",
-        "operationId": "postApiV1Projects",
+      "delete": {
+        "tags": ["pet"],
+        "summary": "Deletes a pet",
+        "description": "",
+        "operationId": "deletePet",
         "parameters": [
           {
-            "type": "string",
-            "description": "Name of project",
-            "name": "name",
-            "in": "formData",
-            "required": true
-          },
-          {
-            "type": "string",
-            "name": "file",
-            "in": "formData"
-          },
-          {
-            "type": "string",
-            "format": "date",
-            "description": "End date of project",
-            "name": "end_date",
-            "in": "formData",
-            "required": false
-          },
-          {
-            "type": "string",
-            "name": "project_manager",
-            "in": "formData",
-            "required": false
-          },
-          {
-            "type": "string",
-            "name": "location",
-            "in": "formData",
-            "required": false
-          },
-          {
-            "type": "string",
-            "name": "description",
-            "in": "formData"
-          },
-          {
-            "type": "string",
-            "name": "financial_institutions",
-            "in": "formData"
-          }
-        ],
-        "consumes": ["multipart/form-data"],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
+            "name": "api_key",
+            "in": "header",
+            "description": "",
+            "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "Pet id to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid pet value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
+      }
+    },
+    "/pet/{petId}/uploadImage": {
+      "post": {
+        "tags": ["pet"],
+        "summary": "uploads an image",
+        "description": "",
+        "operationId": "uploadFile",
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "description": "ID of pet to update",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "additionalMetadata",
+            "in": "query",
+            "description": "Additional Metadata",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": ["write:pets", "read:pets"]
+          }
+        ]
+      }
+    },
+    "/store/inventory": {
+      "get": {
+        "tags": ["store"],
+        "summary": "Returns pet inventories by status",
+        "description": "Returns a map of status codes to quantities",
+        "operationId": "getInventory",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/store/order": {
+      "post": {
+        "tags": ["store"],
+        "summary": "Place an order for a pet",
+        "description": "Place a new order in the store",
+        "operationId": "placeOrder",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
             },
-            "description": "Successful"
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Order"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
           }
         }
       }
     },
-    "/api/v1/roles": {
+    "/store/order/{orderId}": {
       "get": {
-        "summary": "Get all the roles",
-        "operationId": "getApiV1Roles",
-        "tags": ["roles"],
+        "tags": ["store"],
+        "summary": "Find purchase order by ID",
+        "description": "For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions",
+        "operationId": "getOrderById",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of order that needs to be fetched",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["store"],
+        "summary": "Delete purchase order by ID",
+        "description": "For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors",
+        "operationId": "deleteOrder",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "ID of the order that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
+    },
+    "/user": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Create user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "createUser",
+        "requestBody": {
+          "description": "Created user object",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
         "responses": {
           "default": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/createWithList": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Creates list of users with given input array",
+        "description": "Creates list of users with given input array",
+        "operationId": "createUsersWithListInput",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Logs user into the system",
+        "description": "",
+        "operationId": "loginUser",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "The user name for login",
+            "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "The password for login in clear text",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "headers": {
+              "X-Rate-Limit": {
+                "description": "calls per hour allowed by the user",
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "X-Expires-After": {
+                "description": "date in UTC when token expires",
+                "schema": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              }
             },
-            "description": "Successful"
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Logs out current logged in user session",
+        "description": "",
+        "operationId": "logoutUser",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "successful operation"
+          }
+        }
+      }
+    },
+    "/user/{username}": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Get user by user name",
+        "description": "",
+        "operationId": "getUserByName",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "description": "The name that needs to be fetched. Use user1 for testing. ",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
           }
         }
       },
       "put": {
-        "summary": "Add a new role",
-        "operationId": "putApiV1Roles",
-        "tags": ["roles"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users": {
-      "get": {
-        "summary": "List all users",
-        "operationId": "getApiV1Users",
+        "tags": ["user"],
+        "summary": "Update user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "updateUser",
         "parameters": [
           {
-            "type": "string",
-            "name": "name",
-            "in": "query"
-          },
-          {
-            "type": "number",
-            "name": "start",
-            "in": "query"
-          },
-          {
-            "type": "number",
-            "name": "limit",
-            "in": "query"
-          }
-        ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
+            "name": "username",
+            "in": "path",
+            "description": "name that need to be deleted",
+            "required": true,
             "schema": {
               "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Add a new user",
-        "operationId": "postApiV1Users",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model2"
             }
           }
         ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "description": "Update an existent user in the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
             },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/vendors": {
-      "get": {
-        "summary": "List all vendors.",
-        "operationId": "getApiV1Vendors",
-        "parameters": [
-          {
-            "type": "number",
-            "name": "start",
-            "in": "query"
-          },
-          {
-            "type": "number",
-            "name": "limit",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "name": "name",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "name": "phone",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "name": "projectId",
-            "in": "query"
-          },
-          {
-            "type": "string",
-            "name": "status",
-            "in": "query"
-          },
-          {
-            "type": "boolean",
-            "name": "show_archive",
-            "in": "query"
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
             },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Add a vendor.",
-        "operationId": "postApiV1Vendors",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Vendor"
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
             }
           }
-        ],
-        "tags": ["vendors"],
+        },
         "responses": {
           "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/agency/{id}": {
-      "get": {
-        "summary": "Get an agency by id.",
-        "operationId": "getApiV1AgencyId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Id of the agency",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["agency"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update the agency information",
-        "operationId": "putApiV1AgencyId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Id of the agency",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Agency"
-            }
-          }
-        ],
-        "tags": ["agency"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/dashboards": {
-      "get": {
-        "summary": "Get the dashboard informations",
-        "operationId": "getApiV1AppDashboards",
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/settings": {
-      "get": {
-        "summary": "List all the application settings",
-        "operationId": "getApiV1AppSettings",
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/beneficiaries/{id}": {
-      "get": {
-        "summary": "Get an beneficiary by Phone , Wallet Adress or id.",
-        "operationId": "getApiV1BeneficiariesId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["beneficiaries"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
+            "description": "successful operation"
           }
         }
       },
       "delete": {
-        "summary": "Remove and archive a beneficiary,",
-        "operationId": "deleteApiV1BeneficiariesId",
+        "tags": ["user"],
+        "summary": "Delete user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "deleteUser",
         "parameters": [
           {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["beneficiaries"],
-        "responses": {
-          "default": {
+            "description": "The name that needs to be deleted",
+            "required": true,
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid username supplied"
+          },
+          "404": {
+            "description": "User not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Order": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "petId": {
+            "type": "integer",
+            "format": "int64",
+            "example": 198772
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32",
+            "example": 7
+          },
+          "shipDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string",
+            "description": "Order Status",
+            "example": "approved",
+            "enum": ["placed", "approved", "delivered"]
+          },
+          "complete": {
+            "type": "boolean"
+          }
+        },
+        "xml": {
+          "name": "order"
+        }
+      },
+      "Customer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 100000
+          },
+          "username": {
+            "type": "string",
+            "example": "fehguy"
+          },
+          "address": {
+            "type": "array",
+            "xml": {
+              "name": "addresses",
+              "wrapped": true
             },
-            "description": "Successful"
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            }
+          }
+        },
+        "xml": {
+          "name": "customer"
+        }
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "street": {
+            "type": "string",
+            "example": "437 Lytton"
+          },
+          "city": {
+            "type": "string",
+            "example": "Palo Alto"
+          },
+          "state": {
+            "type": "string",
+            "example": "CA"
+          },
+          "zip": {
+            "type": "string",
+            "example": "94301"
+          }
+        },
+        "xml": {
+          "name": "address"
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "Dogs"
+          }
+        },
+        "xml": {
+          "name": "category"
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "username": {
+            "type": "string",
+            "example": "theUser"
+          },
+          "firstName": {
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "James"
+          },
+          "email": {
+            "type": "string",
+            "example": "john@email.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "12345"
+          },
+          "phone": {
+            "type": "string",
+            "example": "12345"
+          },
+          "userStatus": {
+            "type": "integer",
+            "description": "User Status",
+            "format": "int32",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "user"
+        }
+      },
+      "Tag": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "tag"
+        }
+      },
+      "Pet": {
+        "required": ["name", "photoUrls"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "example": 10
+          },
+          "name": {
+            "type": "string",
+            "example": "doggie"
+          },
+          "category": {
+            "$ref": "#/components/schemas/Category"
+          },
+          "photoUrls": {
+            "type": "array",
+            "xml": {
+              "wrapped": true
+            },
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "photoUrl"
+              }
+            }
+          },
+          "tags": {
+            "type": "array",
+            "xml": {
+              "wrapped": true
+            },
+            "items": {
+              "$ref": "#/components/schemas/Tag"
+            }
+          },
+          "status": {
+            "type": "string",
+            "description": "pet status in the store",
+            "enum": ["available", "pending", "sold"]
+          }
+        },
+        "xml": {
+          "name": "pet"
+        }
+      },
+      "ApiResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "xml": {
+          "name": "##default"
+        }
+      }
+    },
+    "requestBodies": {
+      "Pet": {
+        "description": "Pet object that needs to be added to the store",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/Pet"
+            }
           }
         }
       },
-      "put": {
-        "summary": "Update beneficiary details.",
-        "operationId": "putApiV1BeneficiariesId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
+      "UserArray": {
+        "description": "List of user object",
+        "content": {
+          "application/json": {
             "schema": {
-              "$ref": "#/definitions/Beneficiary"
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/User"
+              }
             }
-          }
-        ],
-        "tags": ["beneficiaries"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
           }
         }
       }
     },
-    "/api/v1/institutions/{id}": {
-      "get": {
-        "summary": "Get a financial institutions by Id",
-        "operationId": "getApiV1InstitutionsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["institutions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
+    "securitySchemes": {
+      "petstore_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://petstore3.swagger.io/oauth/authorize",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
           }
         }
       },
-      "delete": {
-        "summary": "Remove and archive a financial institutions",
-        "operationId": "deleteApiV1InstitutionsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["institutions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update financial institutions details",
-        "operationId": "putApiV1InstitutionsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model9"
-            }
-          }
-        ],
-        "tags": ["institutions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/mobilizers/{id}": {
-      "get": {
-        "summary": "Get an MOBILIZER by Wallet Adress or id.",
-        "operationId": "getApiV1MobilizersId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Remove and archive a MOBILIZER,",
-        "operationId": "deleteApiV1MobilizersId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update MOBILIZER details.",
-        "operationId": "putApiV1MobilizersId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model10"
-            }
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/projects/{id}": {
-      "get": {
-        "summary": "Get a project by Id",
-        "operationId": "getApiV1ProjectsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Remove and archive a project",
-        "operationId": "deleteApiV1ProjectsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update project details",
-        "operationId": "putApiV1ProjectsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Project"
-            }
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/roles/{id}": {
-      "get": {
-        "summary": "Get a role by id",
-        "operationId": "getApiV1RolesId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["roles"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Delete a role by id",
-        "operationId": "deleteApiV1RolesId",
-        "tags": ["roles"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/transactions/tosign": {
-      "get": {
-        "summary": "Get a new transaction to sign",
-        "operationId": "getApiV1TransactionsTosign",
-        "tags": ["transactions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/transactions/{to}": {
-      "get": {
-        "summary": "List all transactions.",
-        "operationId": "getApiV1TransactionsTo",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "to",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["transactions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/login": {
-      "get": {
-        "summary": "User login using username and password",
-        "operationId": "getApiV1UsersLogin",
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/{id}": {
-      "get": {
-        "summary": "Find a user by id",
-        "operationId": "getApiV1UsersId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Update user data",
-        "operationId": "postApiV1UsersId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model6"
-            }
-          }
-        ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/vendors/{id}": {
-      "get": {
-        "summary": "Get an vendor by Wallet Adress or id.",
-        "operationId": "getApiV1VendorsId",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "delete": {
-        "summary": "Remove and archive a Vendor,",
-        "operationId": "deleteApiV1VendorsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "put": {
-        "summary": "Update vendor details.",
-        "operationId": "putApiV1VendorsId",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Vendor"
-            }
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/contracts/{contractName}": {
-      "get": {
-        "summary": "Get a contracts artifacts",
-        "operationId": "getApiV1AppContractsContractname",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contractName",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/setup/contracts": {
-      "get": {
-        "summary": "setup a contracts and deploy to blockchain",
-        "operationId": "getApiV1AppSetupContracts",
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/setup/wallet": {
-      "get": {
-        "summary": "Setup a new server wallet",
-        "operationId": "getApiV1AppSetupWallet",
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/beneficiaries/{id}/token": {
-      "get": {
-        "summary": "List token distributions to beneficiary",
-        "operationId": "getApiV1BeneficiariesIdToken",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["beneficiaries"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Distribute token to beneficiary",
-        "operationId": "postApiV1BeneficiariesIdToken",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/TokenDistribution"
-            }
-          }
-        ],
-        "tags": ["beneficiaries"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/mobilizers/{id}/transactions": {
-      "get": {
-        "summary": "Get the token transactions by current MOBILIZER",
-        "operationId": "getApiV1MobilizersIdTransactions",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/projects/{id}/vendors": {
-      "get": {
-        "summary": "List vendors registered to the project",
-        "operationId": "getApiV1ProjectsIdVendors",
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/projects/{id}/beneficiaries": {
-      "get": {
-        "summary": "List beneficiaries registered to the project",
-        "operationId": "getApiV1ProjectsIdBeneficiaries",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "post": {
-        "summary": "Add beneficiary to the project",
-        "operationId": "postApiV1ProjectsIdBeneficiaries",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model8"
-            }
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/roles/{name}/permissions": {
-      "get": {
-        "summary": "Get permissions list by role",
-        "operationId": "getApiV1RolesNamePermissions",
-        "tags": ["roles"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/roles/{role}": {
-      "get": {
-        "summary": "List by role",
-        "operationId": "getApiV1UsersRolesRole",
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/vendors/{id}/transactions": {
-      "get": {
-        "summary": "Get the token transactions by current vendor",
-        "operationId": "getApiV1VendorsIdTransactions",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/contracts/{contractName}/bytecode": {
-      "get": {
-        "summary": "Get a contracts bytecode",
-        "operationId": "getApiV1AppContractsContractnameBytecode",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "contractName",
-            "in": "path",
-            "required": true
-          }
-        ],
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/transactions": {
-      "post": {
-        "summary": "Add a new transaction.",
-        "operationId": "postApiV1Transactions",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model1"
-            }
-          }
-        ],
-        "tags": ["transactions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/app/setup": {
-      "post": {
-        "summary": "Setup a new server for the first time",
-        "operationId": "postApiV1AppSetup",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/AppSetup"
-            }
-          }
-        ],
-        "tags": ["app"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/auth/wallet": {
-      "post": {
-        "summary": "Login using blockchain wallet",
-        "operationId": "postApiV1AuthWallet",
-        "tags": ["auth"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/mobilizers/register": {
-      "post": {
-        "summary": "register a MOBILIZER.",
-        "operationId": "postApiV1MobilizersRegister",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model3"
-            }
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/transactions/signed": {
-      "post": {
-        "summary": "sends signed Transaction",
-        "operationId": "postApiV1TransactionsSigned",
-        "tags": ["transactions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/check": {
-      "post": {
-        "summary": "Check If user Exists",
-        "operationId": "postApiV1UsersCheck",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model4"
-            }
-          }
-        ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/register": {
-      "post": {
-        "summary": "Register a new user",
-        "operationId": "postApiV1UsersRegister",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model5"
-            }
-          }
-        ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/vendors/register": {
-      "post": {
-        "summary": "register a vendor.",
-        "operationId": "postApiV1VendorsRegister",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model7"
-            }
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/login/wallet": {
-      "post": {
-        "summary": "User login using blockchain wallet",
-        "operationId": "postApiV1UsersLoginWallet",
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/roles/{id}/permissions": {
-      "delete": {
-        "summary": "Remove permissions from a role",
-        "operationId": "deleteApiV1RolesIdPermissions",
-        "tags": ["roles"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Add permissions to a role",
-        "operationId": "patchApiV1RolesIdPermissions",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model18"
-            }
-          }
-        ],
-        "tags": ["roles"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/{id}/roles": {
-      "delete": {
-        "summary": "Remove roles from user",
-        "operationId": "deleteApiV1UsersIdRoles",
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      },
-      "patch": {
-        "summary": "Add roles to a user",
-        "operationId": "patchApiV1UsersIdRoles",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model19"
-            }
-          }
-        ],
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/mobilizers/approve": {
-      "patch": {
-        "summary": "Approves MOBILIZER to interact with projects of this agency",
-        "operationId": "patchApiV1MobilizersApprove",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model11"
-            }
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/vendors/approve": {
-      "patch": {
-        "summary": "Approves vendor to interact with projects of this agency",
-        "operationId": "patchApiV1VendorsApprove",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model12"
-            }
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/agency/{id}/contracts": {
-      "patch": {
-        "summary": "Update contract addresses controlled by the agency",
-        "operationId": "patchApiV1AgencyIdContracts",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Id of the agency",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model13"
-            }
-          }
-        ],
-        "tags": ["agency"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/institutions/{id}/status": {
-      "patch": {
-        "summary": "Update financial institutions status",
-        "operationId": "patchApiV1InstitutionsIdStatus",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model14"
-            }
-          }
-        ],
-        "tags": ["institutions"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/mobilizers/{id}/status": {
-      "patch": {
-        "summary": "Change Mobilizers Status",
-        "operationId": "patchApiV1MobilizersIdStatus",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model15"
-            }
-          }
-        ],
-        "tags": ["mobilizers"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/projects/{id}/status": {
-      "patch": {
-        "summary": "Update project status",
-        "operationId": "patchApiV1ProjectsIdStatus",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model16"
-            }
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/projects/{id}/token": {
-      "patch": {
-        "summary": "Add token allocation to the project",
-        "operationId": "patchApiV1ProjectsIdToken",
-        "parameters": [
-          {
-            "type": "string",
-            "description": "Resource identifier",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model17"
-            }
-          }
-        ],
-        "tags": ["projects"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/users/{id}/status": {
-      "patch": {
-        "summary": "Make user active or inactive",
-        "operationId": "patchApiV1UsersIdStatus",
-        "tags": ["users"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
-      }
-    },
-    "/api/v1/vendors/{id}/status": {
-      "patch": {
-        "summary": "Change Vendors Status",
-        "operationId": "patchApiV1VendorsIdStatus",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "id",
-            "in": "path",
-            "required": true
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Model15"
-            }
-          }
-        ],
-        "tags": ["vendors"],
-        "responses": {
-          "default": {
-            "schema": {
-              "type": "string"
-            },
-            "description": "Successful"
-          }
-        }
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
       }
     }
   }
