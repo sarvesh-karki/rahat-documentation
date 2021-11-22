@@ -81,6 +81,6 @@ _If you are trying this in your local machine, please install [Ganache_](https:
 1. Now, in your browser go to [http://localhost:3000](http://localhost:3000/) and follow the setup instructions on screen.
 
 The document is still a work in progress.
-For the user manual [Click here.](https://demo.documentation.rahat.io/docs/next/User%20Manual)
+For the user manual [Click here.](/docs/user-manual)
 
 Last updated: 11/15/2021
