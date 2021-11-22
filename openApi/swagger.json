@@ -1,0 +1,1842 @@
+{
+  "openapi": "2.0",
+  "host": "agency.rahat.io",
+  "basePath": "/",
+  "schemes": ["https"],
+  "info": {
+    "title": "Rahat Server",
+    "version": "2.1.0",
+    "description": "Server application for Rahat Systems"
+  },
+  "securityDefinitions": {
+    "jwt": {
+      "type": "apiKey",
+      "name": "access_token",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "jwt": []
+    }
+  ],
+  "tags": [],
+  "paths": {
+    "/api/v1/auth": {
+      "get": {
+        "summary": "Get the token data",
+        "operationId": "getApiV1Auth",
+        "tags": ["auth"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Login using username and password",
+        "operationId": "postApiV1Auth",
+        "tags": ["auth"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/beneficiaries": {
+      "get": {
+        "summary": "List all beneficiarys.",
+        "operationId": "getApiV1Beneficiaries",
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a beneficiary.",
+        "operationId": "postApiV1Beneficiaries",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/institutions": {
+      "get": {
+        "summary": "List all the financial institutions",
+        "operationId": "getApiV1Institutions",
+        "tags": ["institutions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a financial institutions",
+        "operationId": "postApiV1Institutions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Institution"
+            }
+          }
+        ],
+        "tags": ["institutions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/mobilizers": {
+      "get": {
+        "summary": "List all Mobilizers.",
+        "operationId": "getApiV1Mobilizers",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "projectId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "status",
+            "in": "query"
+          },
+          {
+            "type": "boolean",
+            "name": "show_archive",
+            "in": "query"
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a MOBILIZER.",
+        "operationId": "postApiV1Mobilizers",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Mobilizer"
+            }
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/projects": {
+      "get": {
+        "summary": "List all the agencies projects",
+        "operationId": "getApiV1Projects",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "status",
+            "in": "query"
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new project",
+        "operationId": "postApiV1Projects",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Name of project",
+            "name": "name",
+            "in": "formData",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "file",
+            "in": "formData"
+          },
+          {
+            "type": "string",
+            "format": "date",
+            "description": "End date of project",
+            "name": "end_date",
+            "in": "formData",
+            "required": false
+          },
+          {
+            "type": "string",
+            "name": "project_manager",
+            "in": "formData",
+            "required": false
+          },
+          {
+            "type": "string",
+            "name": "location",
+            "in": "formData",
+            "required": false
+          },
+          {
+            "type": "string",
+            "name": "description",
+            "in": "formData"
+          },
+          {
+            "type": "string",
+            "name": "financial_institutions",
+            "in": "formData"
+          }
+        ],
+        "consumes": ["multipart/form-data"],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/roles": {
+      "get": {
+        "summary": "Get all the roles",
+        "operationId": "getApiV1Roles",
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Add a new role",
+        "operationId": "putApiV1Roles",
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "summary": "List all users",
+        "operationId": "getApiV1Users",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "name": "limit",
+            "in": "query"
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a new user",
+        "operationId": "postApiV1Users",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model2"
+            }
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/vendors": {
+      "get": {
+        "summary": "List all vendors.",
+        "operationId": "getApiV1Vendors",
+        "parameters": [
+          {
+            "type": "number",
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "type": "number",
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "phone",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "projectId",
+            "in": "query"
+          },
+          {
+            "type": "string",
+            "name": "status",
+            "in": "query"
+          },
+          {
+            "type": "boolean",
+            "name": "show_archive",
+            "in": "query"
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add a vendor.",
+        "operationId": "postApiV1Vendors",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Vendor"
+            }
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/agency/{id}": {
+      "get": {
+        "summary": "Get an agency by id.",
+        "operationId": "getApiV1AgencyId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id of the agency",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["agency"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update the agency information",
+        "operationId": "putApiV1AgencyId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id of the agency",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Agency"
+            }
+          }
+        ],
+        "tags": ["agency"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/dashboards": {
+      "get": {
+        "summary": "Get the dashboard informations",
+        "operationId": "getApiV1AppDashboards",
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/settings": {
+      "get": {
+        "summary": "List all the application settings",
+        "operationId": "getApiV1AppSettings",
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/beneficiaries/{id}": {
+      "get": {
+        "summary": "Get an beneficiary by Phone , Wallet Adress or id.",
+        "operationId": "getApiV1BeneficiariesId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove and archive a beneficiary,",
+        "operationId": "deleteApiV1BeneficiariesId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update beneficiary details.",
+        "operationId": "putApiV1BeneficiariesId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Beneficiary"
+            }
+          }
+        ],
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/institutions/{id}": {
+      "get": {
+        "summary": "Get a financial institutions by Id",
+        "operationId": "getApiV1InstitutionsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["institutions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove and archive a financial institutions",
+        "operationId": "deleteApiV1InstitutionsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["institutions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update financial institutions details",
+        "operationId": "putApiV1InstitutionsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model9"
+            }
+          }
+        ],
+        "tags": ["institutions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/mobilizers/{id}": {
+      "get": {
+        "summary": "Get an MOBILIZER by Wallet Adress or id.",
+        "operationId": "getApiV1MobilizersId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove and archive a MOBILIZER,",
+        "operationId": "deleteApiV1MobilizersId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update MOBILIZER details.",
+        "operationId": "putApiV1MobilizersId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model10"
+            }
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{id}": {
+      "get": {
+        "summary": "Get a project by Id",
+        "operationId": "getApiV1ProjectsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove and archive a project",
+        "operationId": "deleteApiV1ProjectsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update project details",
+        "operationId": "putApiV1ProjectsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/roles/{id}": {
+      "get": {
+        "summary": "Get a role by id",
+        "operationId": "getApiV1RolesId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a role by id",
+        "operationId": "deleteApiV1RolesId",
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/transactions/tosign": {
+      "get": {
+        "summary": "Get a new transaction to sign",
+        "operationId": "getApiV1TransactionsTosign",
+        "tags": ["transactions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/transactions/{to}": {
+      "get": {
+        "summary": "List all transactions.",
+        "operationId": "getApiV1TransactionsTo",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "to",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["transactions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/login": {
+      "get": {
+        "summary": "User login using username and password",
+        "operationId": "getApiV1UsersLogin",
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}": {
+      "get": {
+        "summary": "Find a user by id",
+        "operationId": "getApiV1UsersId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update user data",
+        "operationId": "postApiV1UsersId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model6"
+            }
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/vendors/{id}": {
+      "get": {
+        "summary": "Get an vendor by Wallet Adress or id.",
+        "operationId": "getApiV1VendorsId",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Remove and archive a Vendor,",
+        "operationId": "deleteApiV1VendorsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update vendor details.",
+        "operationId": "putApiV1VendorsId",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Vendor"
+            }
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/contracts/{contractName}": {
+      "get": {
+        "summary": "Get a contracts artifacts",
+        "operationId": "getApiV1AppContractsContractname",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contractName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/setup/contracts": {
+      "get": {
+        "summary": "setup a contracts and deploy to blockchain",
+        "operationId": "getApiV1AppSetupContracts",
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/setup/wallet": {
+      "get": {
+        "summary": "Setup a new server wallet",
+        "operationId": "getApiV1AppSetupWallet",
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/beneficiaries/{id}/token": {
+      "get": {
+        "summary": "List token distributions to beneficiary",
+        "operationId": "getApiV1BeneficiariesIdToken",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Distribute token to beneficiary",
+        "operationId": "postApiV1BeneficiariesIdToken",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/TokenDistribution"
+            }
+          }
+        ],
+        "tags": ["beneficiaries"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/mobilizers/{id}/transactions": {
+      "get": {
+        "summary": "Get the token transactions by current MOBILIZER",
+        "operationId": "getApiV1MobilizersIdTransactions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{id}/vendors": {
+      "get": {
+        "summary": "List vendors registered to the project",
+        "operationId": "getApiV1ProjectsIdVendors",
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{id}/beneficiaries": {
+      "get": {
+        "summary": "List beneficiaries registered to the project",
+        "operationId": "getApiV1ProjectsIdBeneficiaries",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add beneficiary to the project",
+        "operationId": "postApiV1ProjectsIdBeneficiaries",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model8"
+            }
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/roles/{name}/permissions": {
+      "get": {
+        "summary": "Get permissions list by role",
+        "operationId": "getApiV1RolesNamePermissions",
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/roles/{role}": {
+      "get": {
+        "summary": "List by role",
+        "operationId": "getApiV1UsersRolesRole",
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/vendors/{id}/transactions": {
+      "get": {
+        "summary": "Get the token transactions by current vendor",
+        "operationId": "getApiV1VendorsIdTransactions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/contracts/{contractName}/bytecode": {
+      "get": {
+        "summary": "Get a contracts bytecode",
+        "operationId": "getApiV1AppContractsContractnameBytecode",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "contractName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/transactions": {
+      "post": {
+        "summary": "Add a new transaction.",
+        "operationId": "postApiV1Transactions",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model1"
+            }
+          }
+        ],
+        "tags": ["transactions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/app/setup": {
+      "post": {
+        "summary": "Setup a new server for the first time",
+        "operationId": "postApiV1AppSetup",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AppSetup"
+            }
+          }
+        ],
+        "tags": ["app"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/auth/wallet": {
+      "post": {
+        "summary": "Login using blockchain wallet",
+        "operationId": "postApiV1AuthWallet",
+        "tags": ["auth"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/mobilizers/register": {
+      "post": {
+        "summary": "register a MOBILIZER.",
+        "operationId": "postApiV1MobilizersRegister",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model3"
+            }
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/transactions/signed": {
+      "post": {
+        "summary": "sends signed Transaction",
+        "operationId": "postApiV1TransactionsSigned",
+        "tags": ["transactions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/check": {
+      "post": {
+        "summary": "Check If user Exists",
+        "operationId": "postApiV1UsersCheck",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model4"
+            }
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/register": {
+      "post": {
+        "summary": "Register a new user",
+        "operationId": "postApiV1UsersRegister",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model5"
+            }
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/vendors/register": {
+      "post": {
+        "summary": "register a vendor.",
+        "operationId": "postApiV1VendorsRegister",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model7"
+            }
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/login/wallet": {
+      "post": {
+        "summary": "User login using blockchain wallet",
+        "operationId": "postApiV1UsersLoginWallet",
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/roles/{id}/permissions": {
+      "delete": {
+        "summary": "Remove permissions from a role",
+        "operationId": "deleteApiV1RolesIdPermissions",
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Add permissions to a role",
+        "operationId": "patchApiV1RolesIdPermissions",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model18"
+            }
+          }
+        ],
+        "tags": ["roles"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}/roles": {
+      "delete": {
+        "summary": "Remove roles from user",
+        "operationId": "deleteApiV1UsersIdRoles",
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Add roles to a user",
+        "operationId": "patchApiV1UsersIdRoles",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model19"
+            }
+          }
+        ],
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/mobilizers/approve": {
+      "patch": {
+        "summary": "Approves MOBILIZER to interact with projects of this agency",
+        "operationId": "patchApiV1MobilizersApprove",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model11"
+            }
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/vendors/approve": {
+      "patch": {
+        "summary": "Approves vendor to interact with projects of this agency",
+        "operationId": "patchApiV1VendorsApprove",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model12"
+            }
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/agency/{id}/contracts": {
+      "patch": {
+        "summary": "Update contract addresses controlled by the agency",
+        "operationId": "patchApiV1AgencyIdContracts",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Id of the agency",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model13"
+            }
+          }
+        ],
+        "tags": ["agency"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/institutions/{id}/status": {
+      "patch": {
+        "summary": "Update financial institutions status",
+        "operationId": "patchApiV1InstitutionsIdStatus",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model14"
+            }
+          }
+        ],
+        "tags": ["institutions"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/mobilizers/{id}/status": {
+      "patch": {
+        "summary": "Change Mobilizers Status",
+        "operationId": "patchApiV1MobilizersIdStatus",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model15"
+            }
+          }
+        ],
+        "tags": ["mobilizers"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{id}/status": {
+      "patch": {
+        "summary": "Update project status",
+        "operationId": "patchApiV1ProjectsIdStatus",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model16"
+            }
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{id}/token": {
+      "patch": {
+        "summary": "Add token allocation to the project",
+        "operationId": "patchApiV1ProjectsIdToken",
+        "parameters": [
+          {
+            "type": "string",
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model17"
+            }
+          }
+        ],
+        "tags": ["projects"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/users/{id}/status": {
+      "patch": {
+        "summary": "Make user active or inactive",
+        "operationId": "patchApiV1UsersIdStatus",
+        "tags": ["users"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/api/v1/vendors/{id}/status": {
+      "patch": {
+        "summary": "Change Vendors Status",
+        "operationId": "patchApiV1VendorsIdStatus",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Model15"
+            }
+          }
+        ],
+        "tags": ["vendors"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,15 @@ const config = {
   favicon: "img/favicon.ico",
   organizationName: "Rahat", // Usually your GitHub org/user name.
   projectName: "Rahat Documentation", // Usually your repo name.
+  plugins: [
+    [
+      "docusaurus-plugin-openapi",
+      {
+        openapiPath: require.resolve("./openApi/swagger.json"),
+        corsProxy: "https://cors-anywhere.herokuapp.com",
+      },
+    ],
+  ],
   presets: [
     [
       "@docusaurus/preset-classic",
@@ -41,7 +50,6 @@ const config = {
       }),
     ],
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -58,10 +66,10 @@ const config = {
             label: "Docs",
           },
           {
-            type: "doc",
-            docId: "API",
-            position: "right",
+            to: "api/",
+            activeBasePath: "api",
             label: "API",
+            position: "right",
           },
           { to: "blog", label: "Releases", position: "right" },
           {
