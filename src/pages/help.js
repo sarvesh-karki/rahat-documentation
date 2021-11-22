@@ -27,7 +27,7 @@ export default function HelpPage() {
                 <ul>
                   <li style={{ fontSize: "20px" }}>
                     Learn how to{" "}
-                    <Link to="/docs/Getting-Started-with-Rahat">
+                    <Link to="/docs/getting-started-with-rahat-systems">
                       get started
                     </Link>{" "}
                     with Jest.{" "}
