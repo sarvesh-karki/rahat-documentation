@@ -26,7 +26,6 @@ const config = {
       "docusaurus-plugin-openapi",
       {
         openapiPath: require.resolve("./openApi/swagger.json"),
-        corsProxy: "https://cors-anywhere.herokuapp.com",
       },
     ],
   ],
