@@ -97,22 +97,13 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0/resources",
-          "label": "Resources"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.0/pilot-reports"
-        },
-        {
-          "type": "link",
-          "label": "Whitepaper",
-          "href": "https://docs.google.com/document/d/1Rxr-Ws194jyfZ2-f2Ne4EYoIoefVccTdpf40C4LFqPQ/edit?rm=minimal"
-        },
-        {
-          "type": "doc",
           "id": "version-1.0/community-feedback-reports",
           "label": "Community Feedback Reports"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/bounty-information",
+          "label": "Bounty Information"
         }
       ]
     },
@@ -125,11 +116,6 @@
           "type": "link",
           "label": "GitHub",
           "href": "https://github.com/esatya/rahat"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.0/bounty-information",
-          "label": "Bounty Information"
         }
       ]
     }
