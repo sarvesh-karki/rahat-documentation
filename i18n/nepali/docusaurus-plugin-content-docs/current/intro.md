@@ -33,11 +33,11 @@ Rahat’s main features are:
 
 ## More Information on Rahat
 
-- [Rahat Team Structure](Rahat-Team)
-- [Our Pilot Program Reports](Pilot-Reports)
+- [Rahat Team Structure](/docs/rahat-team)
 
 Last updated: 7/1/2021
- - Blockchain based Aid Distribution
+
+- Blockchain based Aid Distribution
 
 Rahat is a blockchain-based digital relief distribution management platform for humanitarian agencies to support marginalized communities. It issues, manages and monitors relief distribution in the form of digital tokens. It creates a transparent, efficient and cheaper way to distribute cash or goods. It mobilizes the local community encouraging financial resilience and freedom. For more information, please visit https://rahat.esatya.io.
 
@@ -66,11 +66,11 @@ Rahat’s main features are:
 
 ## More Information on Rahat
 
-- [Rahat Team Structure](Rahat-Team)
-- [Our Pilot Program Reports](Pilot-Reports)
+- [Rahat Team Structure](/docs/rahat-team)
 
 Last updated: 7/1/2021
- - Blockchain based Aid Distribution
+
+- Blockchain based Aid Distribution
 
 Rahat is a blockchain-based digital relief distribution management platform for humanitarian agencies to support marginalized communities. It issues, manages and monitors relief distribution in the form of digital tokens. It creates a transparent, efficient and cheaper way to distribute cash or goods. It mobilizes the local community encouraging financial resilience and freedom. For more information, please visit https://rahat.esatya.io.
 
@@ -99,7 +99,6 @@ Rahat’s main features are:
 
 ## More Information on Rahat
 
-- [Rahat Team Structure](Rahat-Team)
-- [Our Pilot Program Reports](Pilot-Reports)
+- [Rahat Team Structure](/docs/rahat-team)
 
 Last updated: 7/1/2021

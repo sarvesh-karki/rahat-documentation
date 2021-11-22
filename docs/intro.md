@@ -30,13 +30,12 @@ Rahat’s main features are:
 - Rahat Vendor Web App - https://github.com/esatya/rahat-vendor
 - Rahat Social Mobilizer Web App - https://github.com/esatya/rahat-mobilizer
 - Rahat Blockchain-based OTP Service - https://github.com/esatya/rahat-otp
-- Rahat Contract- https://github.com/esatya/rahat-contracts 
+- Rahat Contract- https://github.com/esatya/rahat-contracts
 - Rahat Documentation - https://github.com/esatya/rahat-documentation
 - Rahat UAT - https://github.com/esatya/rahat-uat
 
 ## More Information on Rahat
 
-- [Rahat Team Structure](Rahat-Team)
-- [Our Pilot Program Reports](Pilot-Reports)
+- [Rahat Team Structure](/docs/rahat-team)
 
 Last updated: 11/15/2021
