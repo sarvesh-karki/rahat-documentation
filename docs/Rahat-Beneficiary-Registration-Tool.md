@@ -1,5 +1,6 @@
 ---
 sidebar_position: 8
+id: rahat-beneficiary-registration-tool
 ---
 
 # Beneficiary Registration Tool

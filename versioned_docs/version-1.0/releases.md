@@ -1,5 +1,6 @@
 ---
 sidebar_position: 14
+id: releases
 ---
 
 # Releases

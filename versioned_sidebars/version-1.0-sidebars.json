@@ -11,16 +11,16 @@
         },
         {
           "type": "doc",
-          "id": "version-1.0/Getting-Started-with-Rahat",
+          "id": "version-1.0/getting-started-with-rahat-systems",
           "label": "Getting Started with Rahat Systems"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Team"
+          "id": "version-1.0/rahat-team"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Brand-Guidelines"
+          "id": "version-1.0/brand-guidelines"
         }
       ]
     },
@@ -31,22 +31,22 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0/Licenses",
-          "label": "Licenses - L-GPL 3.0"
+          "id": "version-1.0/licenses",
+          "label": "Licenses "
         },
         {
           "type": "doc",
-          "id": "version-1.0/OS-strategy",
-          "label": "Our O.S Charter"
+          "id": "version-1.0/os-strategy",
+          "label": "OS Strategy"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Contribution-Guidelines",
+          "id": "version-1.0/contribution-guidelines",
           "label": "Contribution Guidelines"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Code-of-Conduct",
+          "id": "version-1.0/code-of-conduct",
           "label": "Code of Conduct"
         }
       ]
@@ -58,38 +58,34 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0/Getting-Started-Developer",
+          "id": "version-1.0/getting-started-developer",
           "label": "Getting started"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Software-Requirements-Specifications",
+          "id": "version-1.0/rahat-software-requirements-specifications",
           "label": "Software Requirement Specification"
         },
+
         {
           "type": "doc",
-          "id": "version-1.0/Api Documentation",
-          "label": "API Documentation"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.0/Integrating-Rahat-with-External-Services",
+          "id": "version-1.0/integrating-rahat-with-external-services",
           "label": "Integrating Rahat with External Services"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Beneficiary-Registration-Tool",
+          "id": "version-1.0/rahat-beneficiary-registration-tool",
           "label": " Beneficiry Registration Tool"
         },
         {
           "type": "doc",
-          "id": "version-1.0/Rahat-Crowd-Fundraise-Module",
+          "id": "version-1.0/rahat-crowd-fundraise-module",
           "label": "Crowd Fundraise Module"
         },
 
         {
           "type": "doc",
-          "id": "version-1.0/User-Manual",
+          "id": "version-1.0/user-manual",
           "label": "User Manual"
         }
       ]
@@ -101,22 +97,13 @@
       "items": [
         {
           "type": "doc",
-          "id": "version-1.0/Resources",
-          "label": "Resources"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.0/Pilot-Reports"
-        },
-        {
-          "type": "link",
-          "label": "Whitepaper",
-          "href": "https://docs.google.com/document/d/1Rxr-Ws194jyfZ2-f2Ne4EYoIoefVccTdpf40C4LFqPQ/edit?rm=minimal"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.0/Community-Feedback-Reports",
+          "id": "version-1.0/community-feedback-reports",
           "label": "Community Feedback Reports"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0/bounty-information",
+          "label": "Bounty Information"
         }
       ]
     },
@@ -129,11 +116,6 @@
           "type": "link",
           "label": "GitHub",
           "href": "https://github.com/esatya/rahat"
-        },
-        {
-          "type": "doc",
-          "id": "version-1.0/Bounty-Information",
-          "label": "Bounty Information"
         }
       ]
     }

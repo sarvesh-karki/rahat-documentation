@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+id: getting-started-with-rahat-systems
 ---
 
 # Getting started with Rahat Systems
@@ -69,7 +70,7 @@ _If you are trying this in your local machine, please install [Ganache](https://
    `yarn start`
 5. Now, in your browser go to http://localhost:3000 and follow the setup instructions on screen.
 
-The document is still a work in progress.  
-For a draft of the user manual click here https://bit.ly/3ieVPfJ
+The document is still a work in progress.
+For the user manual [Click here.](/docs/user-manual)
 
-Last updated: 9/1/2020
+Last updated: 11/15/2021

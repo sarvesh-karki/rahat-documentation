@@ -1,8 +1,8 @@
 ---
-id: Code of Conduct
+id: code-of-conduct
 sidebar_position: 2
-
 ---
+
 # Code of Conduct
 
 ## Our Pledge
@@ -13,27 +13,27 @@ In the interest of fostering an open and welcoming environment, we as contributo
 
 Examples of behavior that contributes to creating a positive environment include:
 
-* Using welcoming and inclusive language
+- Using welcoming and inclusive language
 
-* Being respectful of differing viewpoints and experiences
+- Being respectful of differing viewpoints and experiences
 
-* Gracefully accepting constructive criticism
+- Gracefully accepting constructive criticism
 
-* Focusing on what is best for the community
+- Focusing on what is best for the community
 
-* Showing empathy towards other community members
+- Showing empathy towards other community members
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or advances
+- The use of sexualized language or imagery and unwelcome sexual attention or advances
 
-* Trolling, insulting/derogatory comments, and personal or political attacks
+- Trolling, insulting/derogatory comments, and personal or political attacks
 
-* Public or private harassment
+- Public or private harassment
 
-* Publishing others' private information, such as a physical or electronic address, without explicit permission
+- Publishing others' private information, such as a physical or electronic address, without explicit permission
 
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+- Other conduct which could reasonably be considered inappropriate in a professional setting
 
 ## Our Responsibilities
 
@@ -90,9 +90,8 @@ Consequence: A permanent ban from any sort of public interaction within the comm
 
 ## Attribution
 
-This Code of Conduct is adapted from the [rahat.io](http://rahat.io) version, available at <https://demo.documentation.rahat.io/docs/Code-of-Conduct>
+This Code of Conduct is adapted from the [rahat.io](http://rahat.io) version, available at [Code of Conduct.](/docs/code-of-conduct)
 
 Community Impact Guidelines were inspired by [Contributor Covenant code of conduct. ](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 
 Last updated : 11/15/2021
-

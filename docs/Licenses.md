@@ -1,11 +1,16 @@
 ---
-id: Licenses
+id: licenses
 ---
 
+# Licenses
+
 ## Licenses - L-GPL 3.0
+
 The Rahat Open Source Project uses mixed licensing.
-- [A-GPL 3.0](https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3) ) for Stand alone app 
-- [L-GPL 3.0](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)) for Reusable libraries
+
+- [A-GPL 3.0](<https://tldrlegal.com/license/gnu-lesser-general-public-license-v3-(lgpl-3)>) for Stand alone app
+- [L-GPL 3.0](<https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)>) for Reusable libraries
+- [CC- by SA 4.0 ](https://creativecommons.org/licenses/by-sa/4.0/)for Documentation
 
 ## Rahat Repositories
 
@@ -21,5 +26,9 @@ The Rahat Open Source Project uses mixed licensing.
 
 1. [Rahat-contracts](https://github.com/esatya/rahat-contracts): All the smart contracts implemented in Rahat application
 1. [Rahat-OTP](https://github.com/esatya/rahat-otp): OTP service to verify transactions between beneficiary and vendor
+
+### CC- by SA 4.0
+
+1. [Rahat-Documentation](https://github.com/esatya/rahat-documentation): Rahat Documentation site for technical information
 
 Last Updated: 11/15/2021
