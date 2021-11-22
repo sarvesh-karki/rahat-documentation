@@ -20,23 +20,13 @@ module.exports = {
       "rahat-crowd-fundraise-module",
       "user-manual",
     ],
-    Learn: [
-      "resources",
-      "pilot-reports",
-      {
-        type: "link",
-        label: "Whitepaper",
-        href: "https://docs.google.com/document/d/1Rxr-Ws194jyfZ2-f2Ne4EYoIoefVccTdpf40C4LFqPQ/edit?rm=minimal",
-      },
-      "community-feedback-reports",
-    ],
+    Learn: ["community-feedback-reports", "bounty-information"],
     Collaborate: [
       {
         type: "link",
         label: "GitHub",
         href: "https://github.com/esatya/rahat",
       },
-      "bounty-information",
     ],
   },
   apiSidebar: ["API"],
