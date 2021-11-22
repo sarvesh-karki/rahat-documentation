@@ -30,5 +30,7 @@ The Rahat Open Source Project uses mixed licensing.
 ### CC- by SA 4.0
 
 1. [Rahat-Documentation](https://github.com/esatya/rahat-documentation): Rahat Documentation site for technical information
+1. [Rahat-UAT](https://github.com/esatya/rahat-uat): Rahat UAT for User Acceptance Testing Report
+
 
 Last Updated: 11/15/2021
