@@ -1,5 +1,6 @@
 ---
 sidebar_position: 5
+id: integrating-rahat-with-external-services
 ---
 
 # Integrating Rahat with External Services

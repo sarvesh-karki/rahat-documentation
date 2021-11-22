@@ -1,6 +1,8 @@
 ﻿---
-id: Getting-Started-Developer
+id: getting-started-developer
 ---
+
+# Getting Started Developer
 
 **Getting started with Rahat Systems**
 
@@ -24,62 +26,61 @@ To set up this software on your machine locally:
 
 {
 
-`	`"app": {
+` `"app": {
 
-`		`"port": 3800,
+` `"port": 3800,
 
-`		`"secret": "{32 characters}",
+` `"secret": "{32 characters}",
 
-`		`"url": "{url of your site: http://localhost:3800}",
+` `"url": "{url of your site: http://localhost:3800}",
 
-`		`"db": "mongodb://localhost:27017/rahat",
+` `"db": "mongodb://localhost:27017/rahat",
 
-`		`"cors": [
+` `"cors": [
 
-`			`"\*"
+` `"\*"
 
-`		`]
+` `]
 
-`	`},
+` `},
 
-`	`"jwt": {
+` `"jwt": {
 
-`		`"duration": 3600000,
+` `"duration": 3600000,
 
-`		`"duration\_long": 604800000
+` `"duration_long": 604800000
 
-`	`},
+` `},
 
-`	`"services": {},
+` `"services": {},
 
-`	`"blockchain": {
+` `"blockchain": {
 
-`		`"httpProvider": "http://localhost:8545",
+` `"httpProvider": "http://localhost:8545",
 
-`		`"webSocketProvider": "ws://localhost:8545",
+` `"webSocketProvider": "ws://localhost:8545",
 
-`		`"networkId": "5777"
+` `"networkId": "5777"
 
-`	`}
+` `}
 
 }
 
-*If you are trying this in your local machine, please install [Ganache*](https://www.trufflesuite.com/ganache)*
+_If you are trying this in your local machine, please install [Ganache_](https://www.trufflesuite.com/ganache)\*
 
 3. Install required dependencies and compile smart contracts yarn setup
-3. Start the server yarn start
-3. Now, in your browser go to <http://localhost:3800/documentation> to see API endpoints that are available.
+4. Start the server yarn start
+5. Now, in your browser go to <http://localhost:3800/documentation> to see API endpoints that are available.
 
 **Installing Rahat Agency Dashboard**
 
 1. Clone this repository <https://github.com/esatya/rahat-agency>
-1. Update .env file to add URL of your Rahat server REACT\_APP\_API\_SERVER=http://localhost:3800
-1. Install required dependencies and compile smart contracts ```yarn install``
+1. Update .env file to add URL of your Rahat server REACT_APP_API_SERVER=http://localhost:3800
+1. Install required dependencies and compile smart contracts ``yarn install`
 1. Start the server yarn start
 1. Now, in your browser go to [http://localhost:3000](http://localhost:3000/) and follow the setup instructions on screen.
 
 The document is still a work in progress.
-For a draft of the user manual click here <https://bit.ly/3ieVPfJ>
+For the user manual [Click here.](https://demo.documentation.rahat.io/docs/next/User%20Manual)
 
-Last updated: 9/1/2020
-
+Last updated: 11/15/2021

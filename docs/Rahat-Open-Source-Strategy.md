@@ -1,5 +1,6 @@
 ---
 sidebar_position: 10
+id: rahat-open-source-strategy
 ---
 
 # Rahat Open Source Strategy

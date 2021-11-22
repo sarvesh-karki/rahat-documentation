@@ -1,4 +1,7 @@
 ---
-id: Resources
+id: resources
 ---
+
+# Resources
+
 ## Coming Soon !!!
