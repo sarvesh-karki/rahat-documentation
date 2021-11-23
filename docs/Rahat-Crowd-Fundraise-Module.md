@@ -13,4 +13,4 @@ Decentralized fundraising is one of the very compelling use cases for Rahat. Dur
 
 ![The Decentralized Rahat Flow](https://pbs.twimg.com/media/EjPUzTXU4AMPyfl?format=png&name=medium)
 
-_The document currently work in progress and expected to complete in Q4 - 2021_
+_The document currently work in progress and expected to complete in May 2022. _

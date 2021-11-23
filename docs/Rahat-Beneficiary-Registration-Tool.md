@@ -17,4 +17,4 @@ This tool helps local authorities and organizations in affected communities to r
 
 ![Rahat Beneficiary Tool](https://pbs.twimg.com/media/EjO29xNUcAA-Seh?format=jpg&name=large)
 
-_The document currently work in progress and expected to complete in Q3 - 2021_
+_The document currently work in progress and expected to complete in  February 2022. 
