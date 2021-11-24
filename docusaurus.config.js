@@ -14,8 +14,8 @@ const config = {
   title: "Rahat - Aid Token Distribution",
   tagline:
     "Supporting vulnerable communities with a simple and efficient relief distribution platform.",
-  url: "https://esatya.github.io",
-  baseUrl: "/rahat-documentation/",
+  url: "https://documentation.rahat.io",
+  baseUrl: "/",
   projectName: "rahat-documentation", // Usually your repo name.
   organizationName: "esatya", // Usually your GitHub org/user name.
   onBrokenLinks: "throw",
