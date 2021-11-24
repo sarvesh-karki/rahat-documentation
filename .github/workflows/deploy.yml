@@ -39,3 +39,6 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run gh-deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
