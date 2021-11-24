@@ -1,4 +1,4 @@
-name: NodeJS CI
+name: Documentation CI/CD
 on:
   push:
     branches:
