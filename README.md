@@ -1,4 +1,14 @@
-[![Documentation CI/CD](https://github.com/esatya/rahat-documentation/actions/workflows/deploy.yml/badge.svg)](https://github.com/esatya/rahat-documentation/actions/workflows/deploy.yml)
+<p align="center">
+  <a href="https://circleci.com/gh/facebook/react-native">
+    <img src="https://github.com/esatya/rahat-documentation/actions/workflows/deploy.yml/badge.svg" alt="Current CI/CD build status." />
+  </a>
+  <a href="https://github.com/esatya/rahat-documentation/blob/main/CONTRIBUTING.md">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs welcome!" />
+  </a>
+  <a href="https://github.com/esatya/rahat-documentation/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg" alt="License" />
+  </a>
+</p>
 
 # Introduction
 
