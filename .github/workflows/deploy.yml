@@ -1,5 +1,9 @@
 name: Rahat Documentation CI/CD
-on: [push]
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
 jobs:
   build:
     name: Build & Deploy to Github Pages
@@ -7,14 +11,14 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
-      - uses: actions/setup-node@v1
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: webfactory/ssh-agent@v0.5.0
+      - name: Using Private Key
+        uses: webfactory/ssh-agent@v0.5.0
         with:
           ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - run: npm install
