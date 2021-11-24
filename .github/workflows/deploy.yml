@@ -8,7 +8,7 @@ on:
       - main
 jobs:
   build:
-    name: Build
+    name: Test Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,9 +21,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
+      - run: npm run build
 
-  coverage:
-    name: Coveralls
+  deploy:
+    name: Deployment to Github-pages
     runs-on: ubuntu-latest
     strategy:
       matrix:
