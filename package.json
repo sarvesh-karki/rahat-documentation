@@ -1,7 +1,7 @@
 {
   "name": "rahat-documentation",
   "version": "0.0.0",
-  "homepage": "https://documentation.rahat.io",
+  "homepage": "https://docs.rahat.io",
   "author": "esatya@rumsan.com",
   "private": true,
   "scripts": {
