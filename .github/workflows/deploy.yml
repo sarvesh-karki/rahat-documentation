@@ -14,8 +14,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.GH_PAGES_DEPLOY }}
       - run: npm install
       - run: npm run build
+      - name: Release to GitHub Pages
+        env:
+          USE_SSH: true
+          GIT_USER: git
       - run: |
           git config --global user.email "esatya@rumsan.com"
           git config --global user.name "esatya"
