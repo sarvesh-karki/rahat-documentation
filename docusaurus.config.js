@@ -16,11 +16,11 @@ const config = {
     "Supporting vulnerable communities with a simple and efficient relief distribution platform.",
   url: "https://esatya.github.io",
   baseUrl: "/rahat-documentation/",
+  projectName: "rahat-documentation", // Usually your repo name.
+  organizationName: "esatya", // Usually your GitHub org/user name.
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "esatya", // Usually your GitHub org/user name.
-  projectName: "rahat-documentation", // Usually your repo name.
   plugins: [
     [
       "docusaurus-plugin-openapi",
