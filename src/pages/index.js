@@ -5,15 +5,22 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
-import Translate from '@docusaurus/Translate';
+import Translate from "@docusaurus/Translate";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title"><Translate>Rahat - Aid Token Distribution</Translate></h1>
-        <p className="hero__subtitle"><Translate>Supporting vulnerable communities with a simple and efficient relief distribution platform</Translate></p>
+        <h1 className="hero__title">
+          <Translate>Rahat - Aid Token Distribution</Translate>
+        </h1>
+        <p className="hero__subtitle">
+          <Translate>
+            Supporting vulnerable communities with a simple and efficient relief
+            distribution platform.
+          </Translate>
+        </p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
