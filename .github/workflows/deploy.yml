@@ -16,4 +16,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run build
-      - run: npm run deploy
+      - run: |
+          git config --global user.email "raktim@rumsan.com"
+          git config --global user.name "rakimsth"
+          npm run deploy
