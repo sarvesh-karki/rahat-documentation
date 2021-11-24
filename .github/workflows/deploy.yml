@@ -33,15 +33,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.github_token }}
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install
-      - run: npm run build
       - run: |
           git config --global user.name "Raktim Shrestha"
           git config --global user.email "raktim@rumsan.com"
+      - run: npm run build
       - run: npm run gh-deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
-          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
