@@ -17,6 +17,6 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: |
-          git config --global user.email "raktim@rumsan.com"
-          git config --global user.name "rakimsth"
+          git config --global user.email "esatya@rumsan.com"
+          git config --global user.name "esatya"
           npm run deploy
