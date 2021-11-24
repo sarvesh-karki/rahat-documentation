@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkrahat_documentation=self.webpackChunkrahat_documentation||[]).push([[8426],{24155:function(t){t.exports=JSON.parse('{"permalink":"/rahat-documentation/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
