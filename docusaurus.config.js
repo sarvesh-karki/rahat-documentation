@@ -14,8 +14,8 @@ const config = {
   title: "Rahat - Aid Token Distribution",
   tagline:
     "Supporting vulnerable communities with a simple and efficient relief distribution platform.",
-  url: "https://demo.documentation.rahat.io",
-  baseUrl: "/",
+  url: "https://esatya.github.io",
+  baseUrl: "/rahat-documentation/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
