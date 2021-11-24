@@ -19,8 +19,8 @@ const config = {
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
-  organizationName: "Rahat", // Usually your GitHub org/user name.
-  projectName: "Rahat Documentation", // Usually your repo name.
+  organizationName: "esatya", // Usually your GitHub org/user name.
+  projectName: "rahat-documentation", // Usually your repo name.
   plugins: [
     [
       "docusaurus-plugin-openapi",
