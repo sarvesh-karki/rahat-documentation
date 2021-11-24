@@ -39,9 +39,9 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: |
-          git config user.name "rakimsth"
-          git config user.email "rakimsth@rumsan.com"
-          npm run gh-deploy
+          git config --global user.name "Raktim Shrestha"
+          git config --global user.email "raktim@rumsan.com"
+      - run: npm run gh-deploy
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
