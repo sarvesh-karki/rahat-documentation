@@ -1,508 +1,264 @@
 {
-  "openapi": "3.0.2",
+  "openapi": "3.0.0",
   "info": {
-    "title": "Swagger Petstore - OpenAPI 3.0",
-    "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [http://swagger.io](http://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "apiteam@swagger.io"
-    },
+    "title": "Rahat Server",
+    "version": "2.1.0",
+    "description": "Server application for Rahat Systems",
+    "contact": "support@rahat.io",
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    },
-    "version": "1.0.7"
+    }
   },
   "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
+    "description": "Test out more on our stage server api",
+    "url": "https://agency.rahat.io/documentation"
   },
-  "servers": [
-    {
-      "url": "/api/v3"
+  "servers": [{ "url": "https://agency-stage.rahat.io/api/v1" }],
+  "securityDefinitions": {
+    "access_token": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "access_token",
+      "description": "get token using user login method"
     }
-  ],
+  },
   "tags": [
     {
-      "name": "pet",
-      "description": "Everything about your Pets",
-      "externalDocs": {
-        "description": "Find out more",
-        "url": "http://swagger.io"
-      }
+      "name": "auth"
     },
     {
-      "name": "store",
-      "description": "Operations about user"
+      "name": "agency"
     },
     {
-      "name": "user",
-      "description": "Access to Petstore orders",
-      "externalDocs": {
-        "description": "Find out more about our store",
-        "url": "http://swagger.io"
-      }
+      "name": "app"
+    },
+    {
+      "name": "beneficiaries"
+    },
+    {
+      "name": "institutions"
+    },
+    {
+      "name": "mobilizers"
+    },
+    {
+      "name": "projects"
+    },
+    {
+      "name": "roles"
+    },
+    {
+      "name": "transactions"
+    },
+    {
+      "name": "users"
+    },
+    {
+      "name": "vendors"
     }
   ],
   "paths": {
-    "/pet": {
-      "put": {
-        "tags": ["pet"],
-        "summary": "Update an existing pet",
-        "description": "Update an existing pet by Id",
-        "operationId": "updatePet",
-        "requestBody": {
-          "description": "Update an existent pet in the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
-            }
-          },
-          "required": true
-        },
+    "/auth": {
+      "get": {
+        "tags": ["auth"],
+        "summary": "Get the token data",
+        "operationId": "getApiV1Auth",
         "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid ID supplied"
-          },
-          "404": {
-            "description": "Pet not found"
-          },
-          "405": {
-            "description": "Validation exception"
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
+        }
       },
       "post": {
-        "tags": ["pet"],
-        "summary": "Add a new pet to the store",
-        "description": "Add a new pet to the store",
-        "operationId": "addPet",
-        "requestBody": {
-          "description": "Create a new pet in the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
+        "summary": "Login using username and password",
+        "operationId": "postApiV1Auth",
+        "tags": ["auth"],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
             },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/beneficiaries": {
+      "get": {
+        "tags": ["beneficiaries"],
+        "summary": "List all beneficiarys.",
+        "operationId": "getApiV1Beneficiaries",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
             },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/Pet"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Invalid input"
+            "description": "Successful"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
-      }
-    },
-    "/pet/findByStatus": {
-      "get": {
-        "tags": ["pet"],
-        "summary": "Finds Pets by status",
-        "description": "Multiple status values can be provided with comma separated strings",
-        "operationId": "findPetsByStatus",
-        "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "description": "Status values that need to be considered for filter",
-            "required": false,
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "default": "available",
-              "enum": ["available", "pending", "sold"]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Pet"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Pet"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid status value"
-          }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
-      }
-    },
-    "/pet/findByTags": {
-      "get": {
-        "tags": ["pet"],
-        "summary": "Finds Pets by tags",
-        "description": "Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
-        "operationId": "findPetsByTags",
-        "parameters": [
-          {
-            "name": "tags",
-            "in": "query",
-            "description": "Tags to filter by",
-            "required": false,
-            "explode": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Pet"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Pet"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid tag value"
-          }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
-      }
-    },
-    "/pet/{petId}": {
-      "get": {
-        "tags": ["pet"],
-        "summary": "Find pet by ID",
-        "description": "Returns a single pet",
-        "operationId": "getPetById",
-        "parameters": [
-          {
-            "name": "petId",
-            "in": "path",
-            "description": "ID of pet to return",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Pet"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid ID supplied"
-          },
-          "404": {
-            "description": "Pet not found"
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          },
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
+        }
       },
       "post": {
-        "tags": ["pet"],
-        "summary": "Updates a pet in the store with form data",
-        "description": "",
-        "operationId": "updatePetWithForm",
-        "parameters": [
+        "tags": ["beneficiaries"],
+        "summary": "Add a beneficiary.",
+        "operationId": "postApiV1Beneficiaries",
+        "security": [
           {
-            "name": "petId",
-            "in": "path",
-            "description": "ID of pet that needs to be updated",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
+            "access_token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Beneficiary" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Beneficiary" }
+              }
             }
           },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/institutions": {
+      "get": {
+        "tags": ["institutions"],
+        "summary": "List all the financial institutions",
+        "operationId": "getApiV1Institutions",
+        "security": [
           {
+            "access_token": []
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["institutions"],
+        "summary": "Add a financial institutions",
+        "operationId": "postApiV1Institutions",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Institution" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Institution" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/mobilizers": {
+      "get": {
+        "tags": ["mobilizers"],
+        "summary": "List all Mobilizers.",
+        "operationId": "getApiV1Mobilizers",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
             "name": "name",
-            "in": "query",
-            "description": "Name of pet that needs to be updated",
-            "schema": {
-              "type": "string"
-            }
+            "in": "query"
           },
           {
+            "schema": {
+              "type": "string"
+            },
+            "name": "projectId",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
             "name": "status",
-            "in": "query",
-            "description": "Status of pet that needs to be updated",
+            "in": "query"
+          },
+          {
             "schema": {
-              "type": "string"
-            }
+              "type": "boolean"
+            },
+            "name": "show_archive",
+            "in": "query"
           }
         ],
         "responses": {
-          "405": {
-            "description": "Invalid input"
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
           }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
+        }
       },
-      "delete": {
-        "tags": ["pet"],
-        "summary": "Deletes a pet",
-        "description": "",
-        "operationId": "deletePet",
-        "parameters": [
+      "post": {
+        "tags": ["mobilizers"],
+        "summary": "Add a MOBILIZER.",
+        "operationId": "postApiV1Mobilizers",
+        "security": [
           {
-            "name": "api_key",
-            "in": "header",
-            "description": "",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "petId",
-            "in": "path",
-            "description": "Pet id to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
+            "access_token": []
           }
         ],
-        "responses": {
-          "400": {
-            "description": "Invalid pet value"
-          }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
-      }
-    },
-    "/pet/{petId}/uploadImage": {
-      "post": {
-        "tags": ["pet"],
-        "summary": "uploads an image",
-        "description": "",
-        "operationId": "uploadFile",
-        "parameters": [
-          {
-            "name": "petId",
-            "in": "path",
-            "description": "ID of pet to update",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          },
-          {
-            "name": "additionalMetadata",
-            "in": "query",
-            "description": "Additional Metadata",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/octet-stream": {
-              "schema": {
-                "type": "string",
-                "format": "binary"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "petstore_auth": ["write:pets", "read:pets"]
-          }
-        ]
-      }
-    },
-    "/store/inventory": {
-      "get": {
-        "tags": ["store"],
-        "summary": "Returns pet inventories by status",
-        "description": "Returns a map of status codes to quantities",
-        "operationId": "getInventory",
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "additionalProperties": {
-                    "type": "integer",
-                    "format": "int32"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "api_key": []
-          }
-        ]
-      }
-    },
-    "/store/order": {
-      "post": {
-        "tags": ["store"],
-        "summary": "Place an order for a pet",
-        "description": "Place a new order in the store",
-        "operationId": "placeOrder",
         "requestBody": {
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Order"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/Order"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/Order"
-              }
+              "schema": { "$ref": "#/definitions/Mobilizer" }
             }
           }
         },
@@ -511,9 +267,86 @@
             "description": "successful operation",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
+                "schema": { "$ref": "#/definitions/Mobilizer" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/projects": {
+      "get": {
+        "tags": ["projects"],
+        "summary": "List all the agencies projects",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1Projects",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "status",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["projects"],
+        "summary": "Add new project",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "postApiV1Projects",
+        "consumes": ["multipart/form-data"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Project" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Project" }
               }
             }
           },
@@ -523,289 +356,258 @@
         }
       }
     },
-    "/store/order/{orderId}": {
+    "/roles": {
       "get": {
-        "tags": ["store"],
-        "summary": "Find purchase order by ID",
-        "description": "For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions",
-        "operationId": "getOrderById",
-        "parameters": [
+        "tags": ["roles"],
+        "summary": "Get all the roles",
+        "operationId": "getApiV1Roles",
+        "security": [
           {
-            "name": "orderId",
-            "in": "path",
-            "description": "ID of order that needs to be fetched",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
+            "access_token": []
           }
         ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Order"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid ID supplied"
-          },
-          "404": {
-            "description": "Order not found"
-          }
-        }
-      },
-      "delete": {
-        "tags": ["store"],
-        "summary": "Delete purchase order by ID",
-        "description": "For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors",
-        "operationId": "deleteOrder",
-        "parameters": [
-          {
-            "name": "orderId",
-            "in": "path",
-            "description": "ID of the order that needs to be deleted",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Invalid ID supplied"
-          },
-          "404": {
-            "description": "Order not found"
-          }
-        }
-      }
-    },
-    "/user": {
-      "post": {
-        "tags": ["user"],
-        "summary": "Create user",
-        "description": "This can only be done by the logged in user.",
-        "operationId": "createUser",
-        "requestBody": {
-          "description": "Created user object",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
-          }
-        },
         "responses": {
           "default": {
-            "description": "successful operation",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/user/createWithList": {
-      "post": {
-        "tags": ["user"],
-        "summary": "Creates list of users with given input array",
-        "description": "Creates list of users with given input array",
-        "operationId": "createUsersWithListInput",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "successful operation"
-          }
-        }
-      }
-    },
-    "/user/login": {
-      "get": {
-        "tags": ["user"],
-        "summary": "Logs user into the system",
-        "description": "",
-        "operationId": "loginUser",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "query",
-            "description": "The user name for login",
-            "required": false,
             "schema": {
               "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "in": "query",
-            "description": "The password for login in clear text",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "headers": {
-              "X-Rate-Limit": {
-                "description": "calls per hour allowed by the user",
-                "schema": {
-                  "type": "integer",
-                  "format": "int32"
-                }
-              },
-              "X-Expires-After": {
-                "description": "date in UTC when token expires",
-                "schema": {
-                  "type": "string",
-                  "format": "date-time"
-                }
-              }
             },
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid username/password supplied"
-          }
-        }
-      }
-    },
-    "/user/logout": {
-      "get": {
-        "tags": ["user"],
-        "summary": "Logs out current logged in user session",
-        "description": "",
-        "operationId": "logoutUser",
-        "parameters": [],
-        "responses": {
-          "default": {
-            "description": "successful operation"
-          }
-        }
-      }
-    },
-    "/user/{username}": {
-      "get": {
-        "tags": ["user"],
-        "summary": "Get user by user name",
-        "description": "",
-        "operationId": "getUserByName",
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "description": "The name that needs to be fetched. Use user1 for testing. ",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "content": {
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/User"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid username supplied"
-          },
-          "404": {
-            "description": "User not found"
+            "description": "Successful"
           }
         }
       },
       "put": {
-        "tags": ["user"],
-        "summary": "Update user",
-        "description": "This can only be done by the logged in user.",
-        "operationId": "updateUser",
+        "tags": ["roles"],
+        "summary": "Add a new role",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "putApiV1Roles",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["users"],
+        "summary": "List all users",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1Users",
         "parameters": [
           {
-            "name": "username",
+            "schema": {
+              "type": "string"
+            },
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "limit",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["users"],
+        "summary": "Add a new user",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "postApiV1Users",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model2" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model2" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/vendors": {
+      "get": {
+        "tags": ["vendors"],
+        "summary": "List all vendors.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1Vendors",
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "start",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "name": "limit",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "name",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "phone",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "projectId",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "status",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "boolean"
+            },
+            "name": "show_archive",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["vendors"],
+        "summary": "Add a vendor.",
+        "operationId": "postApiV1Vendors",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Vendor" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Vendor" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/agency/{id}": {
+      "get": {
+        "tags": ["agency"],
+        "summary": "Get an agency by id.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1AgencyId",
+        "parameters": [
+          {
+            "name": "id",
             "in": "path",
-            "description": "name that need to be deleted",
+            "description": "Id of the agency",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "tags": ["agency"],
+        "summary": "Update the agency information",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "putApiV1AgencyId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the agency",
             "required": true,
             "schema": {
               "type": "string"
@@ -813,335 +615,2460 @@
           }
         ],
         "requestBody": {
-          "description": "Update an existent user in the store",
           "content": {
             "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/xml": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
-            },
-            "application/x-www-form-urlencoded": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              }
+              "schema": { "$ref": "#/definitions/Agency" }
             }
           }
         },
         "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Agency" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/app/dashboards": {
+      "get": {
+        "tags": ["app"],
+        "summary": "Get the dashboard informations",
+        "operationId": "getApiV1AppDashboards",
+        "responses": {
           "default": {
-            "description": "successful operation"
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/app/settings": {
+      "get": {
+        "tags": ["app"],
+        "summary": "List all the application settings",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1AppSettings",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/beneficiaries/{id}": {
+      "get": {
+        "tags": ["beneficiaries"],
+        "summary": "Get an beneficiary by Phone , Wallet Adress or id.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1BeneficiariesId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
           }
         }
       },
       "delete": {
-        "tags": ["user"],
-        "summary": "Delete user",
-        "description": "This can only be done by the logged in user.",
-        "operationId": "deleteUser",
+        "tags": ["beneficiaries"],
+        "summary": "Remove and archive a beneficiary,",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1BeneficiariesId",
         "parameters": [
           {
-            "name": "username",
-            "in": "path",
-            "description": "The name that needs to be deleted",
-            "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
           }
         ],
         "responses": {
-          "400": {
-            "description": "Invalid username supplied"
-          },
-          "404": {
-            "description": "User not found"
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
           }
+        }
+      },
+      "put": {
+        "tags": ["beneficiaries"],
+        "summary": "Update beneficiary details.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "putApiV1BeneficiariesId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Beneficiary" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Beneficiary" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/institutions/{id}": {
+      "get": {
+        "tags": ["institutions"],
+        "summary": "Get a financial institutions by Id",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1InstitutionsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["institutions"],
+        "summary": "Remove and archive a financial institutions",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1InstitutionsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "tags": ["institutions"],
+        "summary": "Update financial institutions details",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "putApiV1InstitutionsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model9" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model9" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/mobilizers/{id}": {
+      "get": {
+        "tags": ["mobilizers"],
+        "summary": "Get an MOBILIZER by Wallet Adress or id.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1MobilizersId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["mobilizers"],
+        "summary": "Remove and archive a MOBILIZER,",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1MobilizersId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "tags": ["mobilizers"],
+        "summary": "Update MOBILIZER details.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "putApiV1MobilizersId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model10" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model10" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/projects/{id}": {
+      "get": {
+        "tags": ["projects"],
+        "summary": "Get a project by Id",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1ProjectsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["projects"],
+        "summary": "Remove and archive a project",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1ProjectsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "tags": ["projects"],
+        "summary": "Update project details",
+        "operationId": "putApiV1ProjectsId",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Project" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Project" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/roles/{id}": {
+      "get": {
+        "tags": ["roles"],
+        "summary": "Get a role by id",
+        "operationId": "getApiV1RolesId",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["roles"],
+        "summary": "Delete a role by id",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1RolesId",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/transactions/tosign": {
+      "get": {
+        "tags": ["transactions"],
+        "summary": "Get a new transaction to sign",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1TransactionsTosign",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/transactions/{to}": {
+      "get": {
+        "tags": ["transactions"],
+        "summary": "List all transactions.",
+        "operationId": "getApiV1TransactionsTo",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "to",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Login using username and password",
+        "operationId": "getApiV1UsersLogin",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "Find a user by id",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1UsersId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["users"],
+        "summary": "Update user data",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "postApiV1UsersId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model6" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model6" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/vendors/{id}": {
+      "get": {
+        "tags": ["vendors"],
+        "summary": "Get an vendor by Wallet Adress or id.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1VendorsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["vendors"],
+        "summary": "Remove and archive a Vendor,",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1VendorsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "put": {
+        "tags": ["vendors"],
+        "summary": "Update vendor details.",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "putApiV1VendorsId",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Vendor" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Vendor" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/app/contracts/{contractName}": {
+      "get": {
+        "tags": ["app"],
+        "summary": "Get a contracts artifacts",
+        "operationId": "getApiV1AppContractsContractname",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "contractName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/app/setup/contracts": {
+      "get": {
+        "tags": ["app"],
+        "summary": "setup a contracts and deploy to blockchain",
+        "operationId": "getApiV1AppSetupContracts",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/app/setup/wallet": {
+      "get": {
+        "tags": ["app"],
+        "summary": "Setup a new server wallet",
+        "operationId": "getApiV1AppSetupWallet",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/beneficiaries/{id}/token": {
+      "get": {
+        "tags": ["beneficiaries"],
+        "summary": "List token distributions to beneficiary",
+        "operationId": "getApiV1BeneficiariesIdToken",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["beneficiaries"],
+        "summary": "Distribute token to beneficiary",
+        "operationId": "postApiV1BeneficiariesIdToken",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/TokenDistribution" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/TokenDistribution" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/mobilizers/{id}/transactions": {
+      "get": {
+        "tags": ["mobilizers"],
+        "summary": "Get the token transactions by current MOBILIZER",
+        "operationId": "getApiV1MobilizersIdTransactions",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/projects/{id}/vendors": {
+      "get": {
+        "tags": ["projects"],
+        "summary": "List vendors registered to the project",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1ProjectsIdVendors",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/projects/{id}/beneficiaries": {
+      "get": {
+        "tags": ["projects"],
+        "summary": "List beneficiaries registered to the project",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1ProjectsIdBeneficiaries",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "post": {
+        "tags": ["projects"],
+        "summary": "Add beneficiary to the project",
+        "operationId": "postApiV1ProjectsIdBeneficiaries",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model8" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model8" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/roles/{name}/permissions": {
+      "get": {
+        "tags": ["roles"],
+        "summary": "Get permissions list by role",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "getApiV1RolesNamePermissions",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/users/roles/{role}": {
+      "get": {
+        "tags": ["users"],
+        "summary": "List by role",
+        "operationId": "getApiV1UsersRolesRole",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/vendors/{id}/transactions": {
+      "get": {
+        "tags": ["vendors"],
+        "summary": "Get the token transactions by current vendor",
+        "operationId": "getApiV1VendorsIdTransactions",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/app/contracts/{contractName}/bytecode": {
+      "get": {
+        "tags": ["app"],
+        "summary": "Get a contracts bytecode",
+        "operationId": "getApiV1AppContractsContractnameBytecode",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "contractName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/transactions": {
+      "post": {
+        "tags": ["transactions"],
+        "summary": "Add a new transaction.",
+        "operationId": "postApiV1Transactions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model1" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model1" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/app/setup": {
+      "post": {
+        "tags": ["app"],
+        "summary": "Setup a new server for the first time",
+        "operationId": "postApiV1AppSetup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/AppSetup" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/AppSetup" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/auth/wallet": {
+      "post": {
+        "tags": ["auth"],
+        "summary": "Login using blockchain wallet",
+        "operationId": "postApiV1AuthWallet",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/mobilizers/register": {
+      "post": {
+        "tags": ["mobilizers"],
+        "summary": "Register a MOBILIZER.",
+        "operationId": "postApiV1MobilizersRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model3" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model3" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/transactions/signed": {
+      "post": {
+        "tags": ["transactions"],
+        "summary": "sends signed Transaction",
+        "operationId": "postApiV1TransactionsSigned",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/users/check": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Check If user Exists",
+        "operationId": "postApiV1UsersCheck",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model4" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model4" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/users/register": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Register a new user",
+        "operationId": "postApiV1UsersRegister",
+
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model5" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model5" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/vendors/register": {
+      "post": {
+        "tags": ["vendors"],
+        "summary": "Register a vendor.",
+        "operationId": "postApiV1VendorsRegister",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model7" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model7" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/users/login/wallet": {
+      "post": {
+        "tags": ["users"],
+        "summary": "Login using blockchain wallet",
+        "operationId": "postApiV1UsersLoginWallet",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/roles/{id}/permissions": {
+      "delete": {
+        "tags": ["roles"],
+        "summary": "Remove permissions from a role",
+        "operationId": "deleteApiV1RolesIdPermissions",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["roles"],
+        "summary": "Add permissions to a role",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "patchApiV1RolesIdPermissions",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model18" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model18" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/users/{id}/roles": {
+      "delete": {
+        "tags": ["users"],
+        "summary": "Remove roles from user",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "deleteApiV1UsersIdRoles",
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["users"],
+        "summary": "Add roles to a user",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "operationId": "patchApiV1UsersIdRoles",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model19" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model19" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/mobilizers/approve": {
+      "patch": {
+        "tags": ["mobilizers"],
+        "summary": "Approves MOBILIZER to interact with projects of this agency",
+        "operationId": "patchApiV1MobilizersApprove",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model11" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model11" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/vendors/approve": {
+      "patch": {
+        "tags": ["vendors"],
+        "summary": "Approves vendor to interact with projects of this agency",
+        "operationId": "patchApiV1VendorsApprove",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model12" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model12" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/agency/{id}/contracts": {
+      "patch": {
+        "tags": ["agency"],
+        "summary": "Update contract addresses controlled by the agency",
+        "operationId": "patchApiV1AgencyIdContracts",
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id of the agency",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model13" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model13" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/institutions/{id}/status": {
+      "patch": {
+        "tags": ["institutions"],
+        "summary": "Update financial institutions status",
+        "operationId": "patchApiV1InstitutionsIdStatus",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model14" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model14" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/mobilizers/{id}/status": {
+      "patch": {
+        "tags": ["mobilizers"],
+        "summary": "Change Vendors Status",
+        "operationId": "patchApiV1MobilizersIdStatus",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model15" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model15" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/projects/{id}/status": {
+      "patch": {
+        "tags": ["projects"],
+        "summary": "Update project status",
+        "operationId": "patchApiV1ProjectsIdStatus",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model16" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model16" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/projects/{id}/token": {
+      "patch": {
+        "tags": ["projects"],
+        "summary": "Add token allocation to the project",
+        "operationId": "patchApiV1ProjectsIdToken",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Resource identifier",
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model17" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model17" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
+        }
+      }
+    },
+    "/users/{id}/status": {
+      "patch": {
+        "tags": ["users"],
+        "summary": "Make user active or inactive",
+        "operationId": "patchApiV1UsersIdStatus",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "responses": {
+          "default": {
+            "schema": {
+              "type": "string"
+            },
+            "description": "Successful"
+          }
+        }
+      }
+    },
+    "/vendors/{id}/status": {
+      "patch": {
+        "tags": ["vendors"],
+        "summary": "Change Vendors Status",
+        "operationId": "patchApiV1VendorsIdStatus",
+        "security": [
+          {
+            "access_token": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "id",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/definitions/Model15" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/definitions/Model15" }
+              }
+            }
+          },
+          "405": { "description": "Invalid input" }
         }
       }
     }
   },
-  "components": {
-    "schemas": {
-      "Order": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 10
-          },
-          "petId": {
-            "type": "integer",
-            "format": "int64",
-            "example": 198772
-          },
-          "quantity": {
-            "type": "integer",
-            "format": "int32",
-            "example": 7
-          },
-          "shipDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "string",
-            "description": "Order Status",
-            "example": "approved",
-            "enum": ["placed", "approved", "delivered"]
-          },
-          "complete": {
-            "type": "boolean"
-          }
+  "definitions": {
+    "extras": {
+      "type": "object"
+    },
+    "Beneficiary": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Ram Nepali"
         },
-        "xml": {
-          "name": "order"
-        }
-      },
-      "Customer": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 100000
-          },
-          "username": {
-            "type": "string",
-            "example": "fehguy"
-          },
-          "address": {
-            "type": "array",
-            "xml": {
-              "name": "addresses",
-              "wrapped": true
-            },
-            "items": {
-              "$ref": "#/components/schemas/Address"
-            }
-          }
+        "phone": {
+          "type": "string",
+          "example": "787878"
         },
-        "xml": {
-          "name": "customer"
-        }
-      },
-      "Address": {
-        "type": "object",
-        "properties": {
-          "street": {
-            "type": "string",
-            "example": "437 Lytton"
-          },
-          "city": {
-            "type": "string",
-            "example": "Palo Alto"
-          },
-          "state": {
-            "type": "string",
-            "example": "CA"
-          },
-          "zip": {
-            "type": "string",
-            "example": "94301"
-          }
+        "wallet_address": {
+          "type": "string",
+          "example": "0x00"
         },
-        "xml": {
-          "name": "address"
-        }
-      },
-      "Category": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "example": "Dogs"
-          }
+        "email": {
+          "type": "string",
+          "example": "nepali@gamil.com"
         },
-        "xml": {
-          "name": "category"
-        }
-      },
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 10
-          },
-          "username": {
-            "type": "string",
-            "example": "theUser"
-          },
-          "firstName": {
-            "type": "string",
-            "example": "John"
-          },
-          "lastName": {
-            "type": "string",
-            "example": "James"
-          },
-          "email": {
-            "type": "string",
-            "example": "john@email.com"
-          },
-          "password": {
-            "type": "string",
-            "example": "12345"
-          },
-          "phone": {
-            "type": "string",
-            "example": "12345"
-          },
-          "userStatus": {
-            "type": "integer",
-            "description": "User Status",
-            "format": "int32",
-            "example": 1
-          }
+        "address": {
+          "type": "string",
+          "example": "kathmandu"
         },
-        "xml": {
-          "name": "user"
-        }
-      },
-      "Tag": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "name": {
-            "type": "string"
-          }
+        "address_temporary": {
+          "type": "string",
+          "example": "dang"
         },
-        "xml": {
-          "name": "tag"
-        }
-      },
-      "Pet": {
-        "required": ["name", "photoUrls"],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 10
-          },
-          "name": {
-            "type": "string",
-            "example": "doggie"
-          },
-          "category": {
-            "$ref": "#/components/schemas/Category"
-          },
-          "photoUrls": {
-            "type": "array",
-            "xml": {
-              "wrapped": true
-            },
-            "items": {
-              "type": "string",
-              "xml": {
-                "name": "photoUrl"
-              }
-            }
-          },
-          "tags": {
-            "type": "array",
-            "xml": {
-              "wrapped": true
-            },
-            "items": {
-              "$ref": "#/components/schemas/Tag"
-            }
-          },
-          "status": {
-            "type": "string",
-            "description": "pet status in the store",
-            "enum": ["available", "pending", "sold"]
-          }
+        "gender": {
+          "type": "string"
         },
-        "xml": {
-          "name": "pet"
-        }
-      },
-      "ApiResponse": {
-        "type": "object",
-        "properties": {
-          "code": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "type": {
-            "type": "string"
-          },
-          "message": {
-            "type": "string"
-          }
+        "govt_id": {
+          "type": "string",
+          "example": "9799"
         },
-        "xml": {
-          "name": "##default"
+        "govt_id_image": {
+          "type": "string",
+          "example": "http://source"
+        },
+        "photo": {
+          "type": "string",
+          "example": "http://source"
+        },
+        "projects": {
+          "type": "string",
+          "example": "5f6b2f815685931cbfe4dad8,2f6b2f815685931cbfe4dad7"
+        },
+        "extras": {
+          "$ref": "#/definitions/extras"
         }
       }
     },
-    "requestBodies": {
-      "Pet": {
-        "description": "Pet object that needs to be added to the store",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/components/schemas/Pet"
-            }
-          },
-          "application/xml": {
-            "schema": {
-              "$ref": "#/components/schemas/Pet"
-            }
-          }
+    "Institution": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of institution",
+          "example": "Himalayan Bank"
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of institution",
+          "example": "Kamaladi, Kathmandu"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone of institution",
+          "example": "01-4245980"
         }
       },
-      "UserArray": {
-        "description": "List of user object",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/User"
-              }
-            }
+      "required": ["name"]
+    },
+    "Mobilizer": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of Mobilizer",
+          "example": "Rastra"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Mobilizer phone",
+          "example": "12121212"
+        },
+        "wallet_address": {
+          "type": "string",
+          "description": "Mobilizer wallet address",
+          "example": "0x00000"
+        },
+        "email": {
+          "type": "string",
+          "description": "Mobilizer email",
+          "example": "rastra@gmail.com",
+          "x-format": {
+            "email": true
           }
+        },
+        "address": {
+          "type": "string",
+          "description": "Mobilizer permanent address",
+          "example": "nepal"
+        },
+        "govt_id": {
+          "type": "string",
+          "description": "Mobilizer government issued ID",
+          "example": "99988777nepal"
+        },
+        "govt_id_image": {
+          "type": "string",
+          "description": "ID Image"
+        },
+        "photo": {
+          "type": "string",
+          "description": "Photo"
+        },
+        "organization": {
+          "type": "string",
+          "description": "Name of Organization mobilizer is involved with",
+          "example": "rumsan"
         }
       }
     },
-    "securitySchemes": {
-      "petstore_auth": {
-        "type": "oauth2",
-        "flows": {
-          "implicit": {
-            "authorizationUrl": "https://petstore3.swagger.io/oauth/authorize",
-            "scopes": {
-              "write:pets": "modify pets in your account",
-              "read:pets": "read your pets"
-            }
-          }
+    "Model1": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "details": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "gas": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
         }
       },
-      "api_key": {
-        "type": "apiKey",
-        "name": "api_key",
-        "in": "header"
+      "required": ["title", "details", "to", "gas", "data"]
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Model2": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "wallet_address": {
+          "type": "string"
+        },
+        "agency": {
+          "type": "string"
+        },
+        "roles": {
+          "$ref": "#/definitions/roles"
+        }
+      }
+    },
+    "extra_files": {
+      "type": "object",
+      "properties": {
+        "identity_photo": {
+          "type": "string"
+        },
+        "signature_photo": {
+          "type": "string"
+        },
+        "mou_file": {
+          "type": "string"
+        }
+      }
+    },
+    "Vendor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of vendor",
+          "example": "Rastra"
+        },
+        "wallet_address": {
+          "type": "string",
+          "description": "Vendor wallet address",
+          "example": "0x00000"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Vendor phone",
+          "example": "12121212"
+        },
+        "email": {
+          "type": "string",
+          "description": "Vendor email",
+          "example": "rastra@gmail.com",
+          "x-format": {
+            "email": true
+          }
+        },
+        "gender": {
+          "type": "string",
+          "example": "M"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "shop_name": {
+          "type": "string",
+          "description": "Vendor shop name"
+        },
+        "address": {
+          "type": "string",
+          "example": "Lalitpur"
+        },
+        "govt_id": {
+          "type": "string",
+          "example": "99988777nepal"
+        },
+        "pan_number": {
+          "type": "string",
+          "description": "Vendor PAN number",
+          "example": "1240000"
+        },
+        "bank_name": {
+          "type": "string",
+          "description": "Bank name"
+        },
+        "bank_branch": {
+          "type": "string",
+          "description": "Bank branch name"
+        },
+        "bank_account": {
+          "type": "string",
+          "description": "Bank account number",
+          "example": "2354394935034395"
+        },
+        "projects": {
+          "type": "string",
+          "example": "6108e3a19a8e17b54e464dd1,6208e3a19a8e17b54e464dd2"
+        },
+        "govt_id_image": {
+          "type": "string",
+          "description": "Vendor government issued ID image url",
+          "x-format": {
+            "uri": true
+          }
+        },
+        "education": {
+          "type": "string",
+          "description": "Vendor eductaion"
+        },
+        "extra_files": {
+          "$ref": "#/definitions/extra_files"
+        }
+      },
+      "required": ["name", "wallet_address", "phone"]
+    },
+    "admin": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "phone": {
+          "type": "string",
+          "example": "123456789"
+        },
+        "email": {
+          "type": "string",
+          "example": "admin@test.com",
+          "x-format": {
+            "email": true
+          }
+        },
+        "wallet_address": {
+          "type": "string",
+          "example": "0x66bBca46661c3F51c401aBfaBaF33c5295480896"
+        }
+      },
+      "required": ["name", "phone", "email", "wallet_address"]
+    },
+    "token": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "RAHAT"
+        },
+        "symbol": {
+          "type": "string",
+          "example": "RTH"
+        },
+        "supply": {
+          "type": "number",
+          "example": 100000
+        }
+      },
+      "required": ["name", "symbol", "supply"]
+    },
+    "AppSetup": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "XYZ Org."
+        },
+        "phone": {
+          "type": "string",
+          "example": "123456789"
+        },
+        "email": {
+          "type": "string",
+          "example": "xyz@test.com",
+          "x-format": {
+            "email": true
+          }
+        },
+        "address": {
+          "type": "string",
+          "example": "Kathmandu"
+        },
+        "admin": {
+          "$ref": "#/definitions/admin"
+        },
+        "token": {
+          "$ref": "#/definitions/token"
+        }
+      },
+      "required": ["name", "phone", "email"]
+    },
+    "Model3": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of Mobilizer",
+          "example": "Rastra"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Mobilizer phone",
+          "example": "12121212"
+        },
+        "wallet_address": {
+          "type": "string",
+          "description": "Mobilizer wallet address",
+          "example": "0x172d77Ff5cB061FE2dc77C149f5608789152d642"
+        },
+        "email": {
+          "type": "string",
+          "description": "Mobilizer email",
+          "example": "rastra@gmail.com",
+          "x-format": {
+            "email": true
+          }
+        },
+        "address": {
+          "type": "string",
+          "description": "Mobilizer permanent address",
+          "example": "nepal"
+        },
+        "organization": {
+          "type": "string",
+          "description": "Name of Organization mobilizer is involved with",
+          "example": "rumsan"
+        },
+        "govt_id": {
+          "type": "string",
+          "description": "Mobilizer government issued ID",
+          "example": "99988777nepal"
+        },
+        "govt_id_image": {
+          "type": "string",
+          "description": "ID Image"
+        },
+        "photo": {
+          "type": "string",
+          "description": "Photo"
+        }
+      },
+      "required": ["wallet_address"]
+    },
+    "Model4": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "wallet_address": {
+          "type": "string"
+        }
+      }
+    },
+    "Model5": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "wallet_address": {
+          "type": "string"
+        },
+        "agency": {
+          "type": "string"
+        }
+      }
+    },
+    "Model6": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "Model7": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of vendor",
+          "example": "Rastra"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Vendor phone",
+          "example": "12121212"
+        },
+        "wallet_address": {
+          "type": "string",
+          "description": "Vendor wallet address",
+          "example": "0x172d77Ff5cB061FE2dc77C149f5608789152d642"
+        },
+        "email": {
+          "type": "string",
+          "description": "Vendor email",
+          "example": "rastra@gmail.com",
+          "x-format": {
+            "email": true
+          }
+        },
+        "address": {
+          "type": "string",
+          "example": "nepal"
+        },
+        "govt_id": {
+          "type": "string",
+          "example": "99988777nepal"
+        },
+        "govt_id_image": {
+          "type": "string",
+          "description": "ID Image"
+        },
+        "photo": {
+          "type": "string",
+          "description": "Photo"
+        }
+      },
+      "required": ["wallet_address"]
+    },
+    "TokenDistribution": {
+      "type": "object",
+      "properties": {
+        "beneficiary_id": {
+          "type": "string",
+          "description": "Beneficiary ID"
+        },
+        "project_id": {
+          "type": "string",
+          "description": "Project ID"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Amount of token to be distributed"
+        },
+        "txhash": {
+          "type": "string",
+          "description": "Blockchain transaction hash"
+        }
+      },
+      "required": ["beneficiary_id", "project_id", "amount", "txhash"]
+    },
+    "Model8": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of beneficiary"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Beneficiary phone"
+        },
+        "wallet_address": {
+          "type": "string",
+          "description": "Beneficiary wallet address"
+        },
+        "email": {
+          "type": "string",
+          "description": "Beneficiary email",
+          "x-format": {
+            "email": true
+          }
+        },
+        "address": {
+          "type": "string",
+          "description": "Beneficiary permanent address"
+        },
+        "address_temporary": {
+          "type": "string",
+          "description": "Beneficiary temporary address"
+        },
+        "govt_id": {
+          "type": "string",
+          "description": "Beneficiary government issued ID"
+        },
+        "photo": {
+          "type": "string",
+          "description": "Beneficiary photo url"
+        },
+        "govt_id_image": {
+          "type": "string",
+          "description": "Beneficiary government issued ID image url"
+        }
+      },
+      "required": ["name", "phone"]
+    },
+    "Agency": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "x-format": {
+            "email": true
+          }
+        },
+        "address": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      }
+    },
+    "Model9": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of institution"
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of institution"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone of institution"
+        }
+      }
+    },
+    "Model10": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of Mobilizer",
+          "example": "Rastra"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Mobilizer phone",
+          "example": "12121212"
+        },
+        "wallet_address": {
+          "type": "string",
+          "description": "Mobilizer wallet address",
+          "example": "0x00000"
+        },
+        "email": {
+          "type": "string",
+          "description": "Mobilizer email",
+          "example": "rastra@gmail.com",
+          "x-format": {
+            "email": true
+          }
+        },
+        "address": {
+          "type": "string",
+          "description": "Mobilizer permanent address",
+          "example": "nepal"
+        },
+        "govt_id": {
+          "type": "string",
+          "description": "Mobilizer government issued ID",
+          "example": "99988777nepal"
+        },
+        "govt_id_image": {
+          "type": "string",
+          "description": "Mobilizer government issued ID image url",
+          "example": "http://source",
+          "x-format": {
+            "uri": true
+          }
+        },
+        "organization": {
+          "type": "string",
+          "description": "Name of Organization mobilizer is involved with",
+          "example": "rumsan"
+        }
+      }
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of project"
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date",
+          "description": "End date of project"
+        },
+        "project_manager": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string",
+          "example": "kupondole"
+        },
+        "description": {
+          "type": "string"
+        },
+        "financial_institutions": {
+          "type": "string"
+        }
+      }
+    },
+    "Model11": {
+      "type": "object",
+      "properties": {
+        "wallet_address": {
+          "type": "string",
+          "example": "0x00"
+        },
+        "projectId": {
+          "type": "string"
+        }
+      },
+      "required": ["wallet_address"]
+    },
+    "Model12": {
+      "type": "object",
+      "properties": {
+        "wallet_address": {
+          "type": "string",
+          "example": "0x00"
+        }
+      },
+      "required": ["wallet_address"]
+    },
+    "Model13": {
+      "type": "object",
+      "properties": {
+        "rahat": {
+          "type": "string"
+        },
+        "rahat_admin": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        }
+      },
+      "required": ["rahat", "rahat_admin", "token"]
+    },
+    "Model14": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Status of institution",
+          "default": "active",
+          "enum": ["active", "suspended", "closed"]
+        }
+      },
+      "required": ["status"]
+    },
+    "Model15": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["new", "active", "suspended"]
+        }
+      }
+    },
+    "Model16": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Status of project",
+          "default": "draft",
+          "enum": ["draft", "active", "suspended", "closed"]
+        }
+      },
+      "required": ["status"]
+    },
+    "Model17": {
+      "type": "object",
+      "description": "TokenAllocation",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "Token amount to allocate to the project"
+        },
+        "txhash": {
+          "type": "string",
+          "description": "Blockchain transaction hash"
+        }
+      },
+      "required": ["txhash"]
+    },
+    "Model18": {
+      "type": "object",
+      "properties": {
+        "permissions": {
+          "$ref": "#/definitions/roles"
+        }
+      }
+    },
+    "Model19": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "$ref": "#/definitions/roles"
+        }
       }
     }
   }
