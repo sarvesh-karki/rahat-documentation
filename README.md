@@ -10,11 +10,8 @@
   </a>
 </p>
 
-# Introduction
-
-Rahat documentation website is mainly focused on the technical information of Rahat.The site comprises contents like: Getting started, Code of Conduct, Contributing Guidelines, API Documentation, User Gudie and many more. You can visit https://documentation.rahat.io to know Rahat technically.
-
-# Getting Started
+# Introduction 
+Rahat documentation website is mainly focused on the technical information of Rahat.The site comprises contents like: Getting started, Code of Conduct, Contributing Guidelines, API Documentation, User Gudie and many more. You can visit https://docs.rahat.io to know Rahat technically. 
 
 This is a documentation website of Rahat which is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
