@@ -47,6 +47,7 @@ Issues in Rahat’s[ ](https://github.com/orgs/esatya)[Github repositories](http
 - https://github.com/esatya/rahat-otp
 - https://github.com/esatya/rahat-documentation
 - https://github.com/esatya/rahat-uat 
+- https://github.com/esatya/rahat-vendor-app
 
 ## Reporting Bugs
 
