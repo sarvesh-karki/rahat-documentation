@@ -1,7 +1,3 @@
----
-id: contribution-guidelines
----
-
 # Contribution Guidelines
 
 **Namaste**, Rahat development team would like to thank you for taking the time to contribute! We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
@@ -48,6 +44,7 @@ Issues in Rahat’s[ ](https://github.com/orgs/esatya)[Github repositories](http
 - https://github.com/esatya/rahat-documentation
 - https://github.com/esatya/rahat-uat 
 - https://github.com/esatya/rahat-vendor-app
+- https://github.com/esatya/wallet
 
 ## Reporting Bugs
 
