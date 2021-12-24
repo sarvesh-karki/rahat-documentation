@@ -10,7 +10,7 @@ module.exports = {
       "licenses",
       "os-strategy",
       "Opensource QA Process",
-      "contribution-guidelines",
+      "Contribution-Guidelines",
       "code-of-conduct",
     ],
     "User and Developer Documentation": [
