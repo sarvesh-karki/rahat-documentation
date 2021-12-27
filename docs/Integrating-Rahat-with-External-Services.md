@@ -5,8 +5,15 @@ id: integrating-rahat-with-external-services
 
 # Integrating Rahat with External Services
 
-To make Rahat more useful for aid agencies and organizations, it is necessary for Rahat to integrate with other services that organizations have already been using tools such as KoboToolbox, Google Sheet, and Excel. This integration is planned to happen in the second quarter of 2021. We will keep updating this document with more information as we do more research.
+In order to make Rahat a useful and easy-to-use platform for aid agencies and organizations, we are integrating other services that are already in use by the humanitarian agencies. such as KoboToolbox, Excel, Google sheet. The integration allows users a better user experience as they do not need to redo the work in Rahat applications. 
+Currently, Rahat has integrated KoboToolbox and Excel/Google Sheet in the application. 
 
-The document currently is a work in progress and is expected to be updated with the full requirements by December 2021.
+### KoboToolbox
+KoBotoolbox, an open-source suite for data collection, is mostly used by humanitarian, aid organizations for data collection. The main motive to integrate the KoBotoolbox in the Rahat Agency app was to collect the data of beneficiaries online and offline. Moreover, this will also let onboarded aid agencies import their already existing data entered from KobotoolBox into the agency app. The integration of Kobotool Box allows non-users of aid agencies to onboard the beneficiary in the Rahat ecosystem.
 
-Last updated: 9/1/2020
+### Google Sheet
+Google Sheet/Excel is the most used data collection tool worldwide. Integration of Google Sheet in Rahat lets the agencies upload the excel formatted file containing the data of beneficiaries. This has improved the user experience as the aid agency can onboard a large number of beneficiaries at a time. 
+
+*The document is work in progress.*
+
+Last updated: 12/15/2021
