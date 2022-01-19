@@ -18,8 +18,9 @@ Rahat Mobilizer application is a mobile application that is used by a Mobilizer 
 
 You can find the User Manual Instrustion here :
 
-- [User Manual of Agency App](https://bit.ly/rahat_agency_app_user_manual)
-- [User Manual of Vendor App](https://bit.ly/rahat_vendor_app_user_manual)
-- [User Manual of Mobilizer App](https://bit.ly/rahat_mobilizer_app_user_manual)
+- [User Manual of Agency App](https://bit.ly/rahat_user_manual_agency_app)
+- [User Manual of Vendor App](https://bit.ly/rahat_user_manual_web_vendor_app)
+- [User Manual of Mobilizer App](https://bit.ly/rahat_user_manual_mobilizer_app)
+- [User Manual of Native Vendor App](https://bit.ly/rahat_user_manual_native_vendor_app)
 
-Last updated : 11/15/2021
+Last updated : 01/19/2022
