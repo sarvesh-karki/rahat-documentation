@@ -17,7 +17,7 @@ This tool helps local authorities and organizations in affected communities to r
 
 ![Rahat Beneficiary Tool](https://pbs.twimg.com/media/EjO29xNUcAA-Seh?format=jpg&name=large)
 
-For more details, you can view [Concept Note of Beneficiary Registration Tool](https://docs.rahat.io/docs/next/rahat-beneficiary-registration-tool) 
+For more details, you can view [Concept Note of Beneficiary Registration Tool](https://docs.google.com/document/d/1eMTeME4_qwU_Qk7xMw89VdZOd6jKVZnx6ioIcWD-LUA/edit) 
 
-Updated:12/24/2021
+Updated:1/25/2022
 
