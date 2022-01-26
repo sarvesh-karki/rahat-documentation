@@ -7,7 +7,7 @@ id: rahat-beneficiary-registration-tool
 
 ## Aid-Connect
 
-Rahat has multiple stakeholders cohesively working to make sure that the relief reaches the needy ones efficiently and timely. Along with Aid agencies, vendors, and beneficiaries, the local governments and organizations can also play a vital role as they can identify people who are in immediate need of relief and connect them to the aid distributor. This is where beneficiary registration is important. We are planning to release the Beneficiary Registration Tool in Q3 of 2021.
+Rahat has multiple stakeholders cohesively working to make sure that the relief reaches the needy ones efficiently and timely. Along with Aid agencies, vendors, and beneficiaries, the local governments and organizations can also play a vital role as they can identify people who are in immediate need of relief and connect them to the aid distributor. This is where beneficiary registration is important.
 
 ## Beneficiary Registration Tool
 
@@ -17,4 +17,7 @@ This tool helps local authorities and organizations in affected communities to r
 
 ![Rahat Beneficiary Tool](https://pbs.twimg.com/media/EjO29xNUcAA-Seh?format=jpg&name=large)
 
-_The document currently work in progress and expected to complete in  February 2022. 
+For more details, you can view [Concept Note of Beneficiary Registration Tool](https://docs.google.com/document/d/1eMTeME4_qwU_Qk7xMw89VdZOd6jKVZnx6ioIcWD-LUA/edit) 
+
+Updated:1/25/2022
+

@@ -1,7 +1,3 @@
----
-id: contribution-guidelines
----
-
 # Contribution Guidelines
 
 **Namaste**, Rahat development team would like to thank you for taking the time to contribute! We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
@@ -47,6 +43,9 @@ Issues in Rahat’s[ ](https://github.com/orgs/esatya)[Github repositories](http
 - https://github.com/esatya/rahat-otp
 - https://github.com/esatya/rahat-documentation
 - https://github.com/esatya/rahat-uat 
+- https://github.com/esatya/rahat-vendor-app
+- https://github.com/esatya/wallet
+- https://github.com/esatya/wallet-app
 
 ## Reporting Bugs
 
@@ -64,15 +63,15 @@ You can share your skills and insights to support the Rahat community grow .
 
 ### For Feedbacks and Insights
 
-If you have expertise and experience in cash transfer and want to share your insights and feedback with the community at [support@rahat.io](mailto:suport@rahat.io) or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
+If you have expertise and experience in cash transfer and want to share your insights and feedback with the community at [team@rahat.io](mailto:team@rahat.io) or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
 
 ### For Documentation
 
-We share our journey - and the lessons we learned on the way through reports, case studies, articles, blogs, and surveys. Contact us if you want to contribute and learn more 👉 [support@rahat.io](mailto:suport@rahat.io) or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
+We share our journey - and the lessons we learned on the way through reports, case studies, articles, blogs, and surveys. Contact us if you want to contribute and learn more 👉 [team@rahat.io](mailto:team@rahat.io) or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
 
 ### For Designs
 
-If you are interested in creating and designing in UI/UX, animations, photos, infographics, IEC materials, tutorials, and explainers for the Rahat community -- feel free to contact us with any design-related questions 👉 [support@rahat.io ](mailto:suport@rahat.io)or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
+If you are interested in creating and designing in UI/UX, animations, photos, infographics, IEC materials, tutorials, and explainers for the Rahat community -- feel free to contact us with any design-related questions 👉 [team@rahat.io ](mailto:team@rahat.io)or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
 
 # Style Guide
 

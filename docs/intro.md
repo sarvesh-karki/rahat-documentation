@@ -33,9 +33,6 @@ Rahat’s main features are:
 - Rahat Contract- https://github.com/esatya/rahat-contracts
 - Rahat Documentation - https://github.com/esatya/rahat-documentation
 - Rahat UAT - https://github.com/esatya/rahat-uat
-
-## More Information on Rahat
-
-- [Rahat Team Structure](/docs/rahat-team)
+- Rahat Vendor app- https://github.com/esatya/rahat-vendor-app
 
 Last updated: 11/15/2021
