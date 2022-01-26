@@ -45,6 +45,7 @@ Issues in Rahat’s[ ](https://github.com/orgs/esatya)[Github repositories](http
 - https://github.com/esatya/rahat-uat 
 - https://github.com/esatya/rahat-vendor-app
 - https://github.com/esatya/wallet
+- https://github.com/esatya/wallet-app
 
 ## Reporting Bugs
 
