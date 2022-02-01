@@ -46,7 +46,7 @@ export default function HelpPage() {
                 <ul>
                   <li style={{ fontSize: "20px" }}>
                     Join us on Discord,{" "}
-                    <Link to="https://discord.com/invite/U9puzwvK">
+                    <Link to="https://discord.gg/p2kxaP2m8t">
                       Rahat Community
                     </Link>
                   </li>
