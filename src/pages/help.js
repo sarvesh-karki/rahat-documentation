@@ -50,12 +50,6 @@ export default function HelpPage() {
                       Rahat Community
                     </Link>
                   </li>
-                  <li style={{ fontSize: "20px" }}>
-                    Connect with our contributors at{" "}
-                    <Link to="https://gitter.im/bockies/community?utm_source=badge&utm_medium=badge&utm_content=badge">
-                      Gitter
-                    </Link>
-                  </li>
                 </ul>
               </p>
             </Col>
