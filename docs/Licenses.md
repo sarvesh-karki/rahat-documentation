@@ -2,9 +2,7 @@
 id: licenses
 ---
 
-# Licenses
-
-## Licenses - L-GPL 3.0
+# Open Source Licenses
 
 The Rahat Open Source Project uses mixed licensing.
 

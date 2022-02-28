@@ -79,6 +79,6 @@ This repository uses [eslint ](https://github.com/eslint/eslint)to enforce [air-
 
 ## Connect with Rahat Contributors
 
-If you want to connect with our contributors, you can connect us at [![Join the chat at https://gitter.im/bockies/community](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bockies/community?utm_source=badge&utm_medium=badge&utm_content=badge)
+If you want to connect with our contributors, you can connect us at Join us at Discord **Rahat Community** at (https://discord.gg/p2kxaP2m8t)
 
-Last updated : 11/15/2021
+Last updated : 02/09/2021
