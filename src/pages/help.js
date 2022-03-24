@@ -46,14 +46,8 @@ export default function HelpPage() {
                 <ul>
                   <li style={{ fontSize: "20px" }}>
                     Join us on Discord,{" "}
-                    <Link to="https://discord.gg/p2kxaP2m8t">
+                    <Link to="https://discord.gg/zDwzuCAhmu">
                       Rahat Community
-                    </Link>
-                  </li>
-                  <li style={{ fontSize: "20px" }}>
-                    Connect with our contributors at{" "}
-                    <Link to="https://gitter.im/bockies/community?utm_source=badge&utm_medium=badge&utm_content=badge">
-                      Gitter
                     </Link>
                   </li>
                 </ul>

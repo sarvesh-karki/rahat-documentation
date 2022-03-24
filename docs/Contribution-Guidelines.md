@@ -13,7 +13,13 @@ We have created guidelines for contributing to Rahat project and packages. These
 
 # How to contribute to the Rahat Project?
 
+If you like to communicate 
 This section guides you through submitting a bug report for Rahat. Following these guidelines helps maintainers and the community understand your report, reproduce the behavior, and find related reports
+
+ If you want to contribute, provide suggestions/feedback, or stay up-to-date about Rahat, you can join our **Discord** channel.
+
+➡️[Click here to join.](https://discord.gg/zDwzuCAhmu)
+
 You can submit a bug report or any suggestions on this project through github issues.
 When you are creating a bug report, please include as many details as possible. Fill out the required template, the information it asks for helps us resolve issues faster.
 The best way to contribute to this project is by making a pull request in following ways
@@ -67,7 +73,7 @@ If you have expertise and experience in cash transfer and want to share your ins
 
 ### For Documentation
 
-We share our journey - and the lessons we learned on the way through reports, case studies, articles, blogs, and surveys. Contact us if you want to contribute and learn more 👉 [team@rahat.io](mailto:team@rahat.io) or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/p2kxaP2m8t)
+We share our journey - and the lessons we learned on the way through reports, case studies, articles, blogs, and surveys. Contact us if you want to contribute and learn more 👉 [team@rahat.io](mailto:team@rahat.io) or connect with us [\[t\]](https://twitter.com/rahataid) [\[d\] ](https://discord.gg/zDwzuCAhmu)
 
 ### For Designs
 
@@ -79,6 +85,8 @@ This repository uses [eslint ](https://github.com/eslint/eslint)to enforce [air-
 
 ## Connect with Rahat Contributors
 
-If you want to connect with our contributors, you can connect us at [![Join the chat at https://gitter.im/bockies/community](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bockies/community?utm_source=badge&utm_medium=badge&utm_content=badge)
+If you want to connect with our contributors, you can connect us at Join us at Discord 
 
-Last updated : 11/15/2021
+➡️[Click here to join.](https://discord.gg/zDwzuCAhmu)
+
+Last updated : 02/28/2022
