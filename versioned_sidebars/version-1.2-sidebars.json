@@ -1,0 +1,111 @@
+{
+  "version-1.2/tutorialSidebar": [
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Introduction",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.2/intro"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/rahat"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/opensource_license"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/rumsan"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/partners_and_investors"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "System Architecture",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.2/architecture"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/architecture_design"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/tech_stack"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "User Guide",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.2/user_guide"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/user_manual"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Developer Guide",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.2/developer_guide"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/contributing_guidelines"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/smart_contract_report_and_audit"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/self_hosting_guide"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "collapsed": true,
+      "collapsible": true,
+      "label": "Community",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.2/project_charter"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.2/contributing_guidelines"
+        },{
+          "type": "doc",
+          "id": "version-1.2/code_of_conduct"
+        }
+      ]
+    }
+  ]
+}
