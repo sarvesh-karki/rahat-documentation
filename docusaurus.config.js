@@ -142,7 +142,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Rahat. A part of Rumsan Group of Companies. Designed by Rumsan.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Rahat. A part of Rumsan Company. Designed by Rumsan | <a href="/privacy-policy">Privacy Policy</a> | `,
       },
       prism: {
         theme: lightCodeTheme,
