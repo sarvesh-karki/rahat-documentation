@@ -18,4 +18,4 @@ Rahat is a blockchain-based application with node-js as backend and uses truffle
 
 You can get started with [**Good First Issues**](https://github.com/orgs/esatya/projects/2?card_filter_query=label%3A%22good+first+issue%22) in Rahat projects and help you make your first contribution to open-source. If you are a beginner or want to start contributing to Rahat get started with our good first issues. The issues labeled as good first issues are verified by the developers of Rahat for the newcomers who want to contribute to Rahat. 
 
-You can go through [Rahat - Software Requirement Specification Document Here.](https://bit.ly/38mrB80) 
+To get detailed information,you can go through [Rahat - Software Requirement Specification Document Here.](https://bit.ly/38mrB80) 
