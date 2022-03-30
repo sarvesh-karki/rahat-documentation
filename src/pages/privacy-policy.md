@@ -82,7 +82,7 @@ Your personal data will be kept strictly confidential and securely kept. Rumsan 
 
 
 ## INFORMATION COLLECTED IN WEBSITE AND PURPOSE  
-On our website [www.rahat.io](www.rahat.io), users can request to schedule a demo by providing contact information such as Name, Phone number and Email ID. We collect the information to verify the client details to schedule a product demo.
+On our website [www.rahat.io](https://rahat.io/), users can request to schedule a demo by providing contact information such as Name, Phone number and Email ID. We collect the information to verify the client details to schedule a product demo.
 
 ## CHANGES IN THIS PRIVACY POLICY
 

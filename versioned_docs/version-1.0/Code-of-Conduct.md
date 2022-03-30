@@ -90,7 +90,7 @@ Consequence: A permanent ban from any sort of public interaction within the comm
 
 ## Attribution
 
-This Code of Conduct is adapted from the [rahat.io](http://rahat.io) version, available at [Code of Conduct.](/docs/code-of-conduct)
+This Code of Conduct is adapted from the [rahat.io](http://rahat.io) version, available at [Code of Conduct.](/docs/code_of_conduct)
 
 Community Impact Guidelines were inspired by [Contributor Covenant code of conduct. ](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 
