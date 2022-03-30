@@ -2,11 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.rahat.io/blog</id>
     <title>Rahat - Aid Token Distribution Blog</title>
-    <updated>2022-02-28T00:00:00.000Z</updated>
+    <updated>2022-03-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.rahat.io/blog"/>
     <subtitle>Rahat - Aid Token Distribution Blog</subtitle>
     <icon>https://docs.rahat.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 2.9.0]]></title>
+        <id>Release 2.9.0</id>
+        <link href="https://docs.rahat.io/blog/2022/03/29/ Release 2.9.0"/>
+        <updated>2022-03-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hello everyone, we are back with our monthly release. In the Month of March, we were focused more on documenting Rahat and minor improvements and bug fixes.]]></summary>
+        <content type="html"><![CDATA[<p>Hello everyone, we are back with our monthly release. In the Month of March, we were focused more on documenting Rahat and minor improvements and bug fixes. </p><h2>Rahat Knowledge Base</h2><p>In Release 2.9.0, we have restructured and released Rahat documentation site v1.2. The site will provide you with detailed information about Rahat from a technical standpoint. This document aims to be a collection of all Rahat documentation and unlike blockchain this is mutable.</p><p>The structure of the document has been inspired by various open-source projects mainly -  <a href="https://jitsi.github.io/handbook/">https://jitsi.github.io/handbook/</a> and <a href="https://docs.treejer.com/">https://docs.treejer.com/</a>. Check these great open source projects out.</p><p><img src="https://assets.rumsan.com/esatya/rahat-documentation-site-v1.2.png" alt="Rahat documentation v1.2"/></p><h2>Bug fixes</h2><p>We have resolved some of the bugs in the Rahat application. Here is the list of bug fixes:</p><ul><li>Fix Tx History To/From Mismatch</li><li>Handle error on failed SMS</li><li>Fix Error on Bulk Beneficiary Upload from Project Details</li><li>Fix Contract assets naming conflicts in Rahat-vendor</li></ul><p>For more details, you can view our <a href="https://github.com/esatya/rahat/releases/tag/v2.9.0">Release Note</a>.</p><p>To know about our next release updates, you can go through our <!-- -->[Issue Board]<!-- --> (<a href="https://github.com/orgs/esatya/projects/2">https://github.com/orgs/esatya/projects/2</a>).</p>]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 2.8.0]]></title>
         <id>Release 2.8.0</id>
