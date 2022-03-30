@@ -27,14 +27,14 @@ export default function HelpPage() {
                 <ul>
                   <li style={{ fontSize: "20px" }}>
                     Learn how to{" "}
-                    <Link to="/docs/getting-started-developer">
+                    <Link to="/docs/developer_guide">
                       get started
                     </Link>{" "}
                     with Jest.{" "}
                   </li>
                   <li style={{ fontSize: "20px" }}>
                     {" "}
-                    Look at the full <Link to="/docs/api">API Reference</Link>.
+                    Look at the full <Link to="/api">API Reference</Link>.
                   </li>
                 </ul>
               </p>

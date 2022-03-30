@@ -34,8 +34,5 @@ Rahat’s main features are:
 - Rahat Documentation - https://github.com/esatya/rahat-documentation
 - Rahat UAT - https://github.com/esatya/rahat-uat
 
-## More Information on Rahat
-
-- [Rahat Team Structure](/docs/rahat-team)
 
 Last updated: 11/15/2021
