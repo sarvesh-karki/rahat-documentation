@@ -28,6 +28,7 @@ The Rahat Open Source Project uses mixed licensing.
 6. [Rahat-Vendor-app](https://github.com/esatya/rahat-vendor-app): Mobile based vendor wallet app to serve beneficiary for aid distribution
 7. [Rumsan-wallet-app](https://github.com/rumsan/wallet-app): Mobile Based wallet ap used by agencies to login and sign transactions in agency app
 8. [Rahat-aid-connect](https://github.com/esatya/rahat-aid-connect): Rahat tool to onboard beneficiaries for agencies and implementers
+9.[Rahat-fundraise](https://github.com/esatya/rahat-fundraise) : Rahat crowdfunding platform to raise fund for relief distribution
 
 
 ### **Reusable Libraries - L-GPL 3.0[​](https://docs.rahat.io/docs/next/licenses#reusable-libraries---l-gpl-30)**
