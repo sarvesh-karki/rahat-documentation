@@ -21,3 +21,4 @@ Welcome to the self-hosting guide. These guides help you to host your own Rahat 
 * [Rumsan Wallet (Mobile)](https://github.com/esatya/wallet-app)
 * [Vendor app (Mobile)](https://github.com/esatya/rahat-vendor-app/blob/master/README.md)
 * [Aid Connect](https://github.com/esatya/rahat-aid-connect/blob/main/README.md)
+* [Rahat fundraise](https://github.com/esatya/rahat-fundraise)
