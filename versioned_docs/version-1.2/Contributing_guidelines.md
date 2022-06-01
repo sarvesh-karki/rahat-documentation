@@ -76,6 +76,7 @@ If you find any bug and you're not sure how to fix it, or you don't know how to 
 * [https://github.com/esatya/wallet](https://github.com/esatya/wallet)
 * [https://github.com/esatya/wallet-app](https://github.com/esatya/wallet-app)
 * [https://github.com/esatya/rahat-aid-connect](https://github.com/esatya/rahat-aid-connect/issues)
+*[https://github.com/esatya/rahat-fundraise](https://github.com/esatya/rahat-fundraise)
 
 Before opening an issue, check to see if there are any current issues with similar key words. This helps us cut down on duplicate tickets.
 
