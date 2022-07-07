@@ -64,19 +64,30 @@ const config = {
             position: "right",
             label: "Docs",
           },
+          // api dropdown starts
           {
-            to: "api/",
-            activeBasePath: "api",
+            type: "dropdown",
             label: "API",
             position: "right",
+            items: [
+              {
+                label: "Rahat Agency",
+                to: "api",
+              },
+              {
+                label: "Rahat Crowdfunding",
+                href: "https://www.facebook.com",
+              },
+            ],
           },
+          // api dropdown ends
           { to: "blog", label: "Releases", position: "right" },
           {
             to: "/help",
             position: "right",
             label: "Help",
           },
-
+          
           {
             type: "docsVersionDropdown",
             position: "left",
